@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="pingback" href="https://www.aes.id.au/xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="https://www.aes.id.au/wp-content/themes/twentyfifteen/js/html5.js?ver=3.7.0"></script>
+	<![endif]-->
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>A Modest Proposal &#8211; Andrew E. Scott</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='https://fonts.googleapis.com/' />
+<link rel='dns-prefetch' href='https://s.w.org/' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Andrew E. Scott &raquo; Feed" href="https://www.aes.id.au/?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="Andrew E. Scott &raquo; Comments Feed" href="https://www.aes.id.au/?feed=comments-rss2" />
+<link rel="alternate" type="application/rss+xml" title="Andrew E. Scott &raquo; A Modest Proposal Comments Feed" href="https://www.aes.id.au/?feed=rss2&#038;p=387" />
+		<script>
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.aes.id.au\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.7.2"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='openid-css'  href='https://www.aes.id.au/wp-content/plugins/openid/f/openid.css?ver=519' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://www.aes.id.au/wp-includes/css/dist/block-library/style.min.css?ver=5.7.2' media='all' />
+<link rel='stylesheet' id='wp-block-library-theme-css'  href='https://www.aes.id.au/wp-includes/css/dist/block-library/theme.min.css?ver=5.7.2' media='all' />
+<link rel='stylesheet' id='quads-style-css-css'  href='https://www.aes.id.au/wp-content/plugins/quick-adsense-reloaded/includes/gutenberg/dist/blocks.style.build.css?ver=2.0.27' media='all' />
+<link rel='stylesheet' id='wpt-twitter-feed-css'  href='https://www.aes.id.au/wp-content/plugins/wp-to-twitter/css/twitter-feed.css?ver=5.7.2' media='all' />
+<link rel='stylesheet' id='parent-style-css'  href='https://www.aes.id.au/wp-content/themes/twentyfifteen/style.css?ver=5.7.2' media='all' />
+<link rel='stylesheet' id='twentyfifteen-fonts-css'  href='https://fonts.googleapis.com/css?family=Noto+Sans%3A400italic%2C700italic%2C400%2C700%7CNoto+Serif%3A400italic%2C700italic%2C400%2C700%7CInconsolata%3A400%2C700&#038;subset=latin%2Clatin-ext&#038;display=fallback' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://www.aes.id.au/wp-content/themes/twentyfifteen/genericons/genericons.css?ver=20201208' media='all' />
+<link rel='stylesheet' id='twentyfifteen-style-css'  href='https://www.aes.id.au/wp-content/themes/twentyfifteen-child/style.css?ver=20201208' media='all' />
+<style id='twentyfifteen-style-inline-css'>
+
+		/* Custom Sidebar Text Color */
+		.site-title a,
+		.site-description,
+		.secondary-toggle:before {
+			color: #000000;
+		}
+
+		.site-title a:hover,
+		.site-title a:focus {
+			color: #000000; /* Fallback for IE7 and IE8 */
+			color: rgba( 0, 0, 0, 0.7);
+		}
+
+		.secondary-toggle {
+			border-color: #000000; /* Fallback for IE7 and IE8 */
+			border-color: rgba( 0, 0, 0, 0.1);
+		}
+
+		.secondary-toggle:hover,
+		.secondary-toggle:focus {
+			border-color: #000000; /* Fallback for IE7 and IE8 */
+			border-color: rgba( 0, 0, 0, 0.3);
+		}
+
+		.site-title a {
+			outline-color: #000000; /* Fallback for IE7 and IE8 */
+			outline-color: rgba( 0, 0, 0, 0.3);
+		}
+
+		@media screen and (min-width: 59.6875em) {
+			.secondary a,
+			.dropdown-toggle:after,
+			.widget-title,
+			.widget blockquote cite,
+			.widget blockquote small {
+				color: #000000;
+			}
+
+			.widget button,
+			.widget input[type="button"],
+			.widget input[type="reset"],
+			.widget input[type="submit"],
+			.widget_calendar tbody a {
+				background-color: #000000;
+			}
+
+			.textwidget a {
+				border-color: #000000;
+			}
+
+			.secondary a:hover,
+			.secondary a:focus,
+			.main-navigation .menu-item-description,
+			.widget,
+			.widget blockquote,
+			.widget .wp-caption-text,
+			.widget .gallery-caption {
+				color: rgba( 0, 0, 0, 0.7);
+			}
+
+			.widget button:hover,
+			.widget button:focus,
+			.widget input[type="button"]:hover,
+			.widget input[type="button"]:focus,
+			.widget input[type="reset"]:hover,
+			.widget input[type="reset"]:focus,
+			.widget input[type="submit"]:hover,
+			.widget input[type="submit"]:focus,
+			.widget_calendar tbody a:hover,
+			.widget_calendar tbody a:focus {
+				background-color: rgba( 0, 0, 0, 0.7);
+			}
+
+			.widget blockquote {
+				border-color: rgba( 0, 0, 0, 0.7);
+			}
+
+			.main-navigation ul,
+			.main-navigation li,
+			.secondary-toggle,
+			.widget input,
+			.widget textarea,
+			.widget table,
+			.widget th,
+			.widget td,
+			.widget pre,
+			.widget li,
+			.widget_categories .children,
+			.widget_nav_menu .sub-menu,
+			.widget_pages .children,
+			.widget abbr[title] {
+				border-color: rgba( 0, 0, 0, 0.1);
+			}
+
+			.dropdown-toggle:hover,
+			.dropdown-toggle:focus,
+			.widget hr {
+				background-color: rgba( 0, 0, 0, 0.1);
+			}
+
+			.widget input:focus,
+			.widget textarea:focus {
+				border-color: rgba( 0, 0, 0, 0.3);
+			}
+
+			.sidebar a:focus,
+			.dropdown-toggle:focus {
+				outline-color: rgba( 0, 0, 0, 0.3);
+			}
+		}
+	
+</style>
+<link rel='stylesheet' id='twentyfifteen-block-style-css'  href='https://www.aes.id.au/wp-content/themes/twentyfifteen/css/blocks.css?ver=20190102' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfifteen-ie-css'  href='https://www.aes.id.au/wp-content/themes/twentyfifteen/css/ie.css?ver=20170916' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentyfifteen-ie7-css'  href='https://www.aes.id.au/wp-content/themes/twentyfifteen/css/ie7.css?ver=20141210' media='all' />
+<![endif]-->
+<style id='quads-styles-inline-css'>
+.quads-ad-label { font-size: 12px; text-align: center; color: #333;}
+</style>
+<script src='https://www.aes.id.au/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
+<script src='https://www.aes.id.au/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script src='https://www.aes.id.au/wp-content/plugins/openid/f/openid.js?ver=519' id='openid-js'></script>
+<link rel="https://api.w.org/" href="https://www.aes.id.au/index.php?rest_route=/" /><link rel="alternate" type="application/json" href="https://www.aes.id.au/index.php?rest_route=/wp/v2/posts/387" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.aes.id.au/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.7.2" />
+<link rel="canonical" href="index.html%3Fp=387.html" />
+<link rel='shortlink' href='index.html%3Fp=387.html' />
+<link rel="alternate" type="application/json+oembed" href="https://www.aes.id.au/index.php?rest_route=%2Foembed%2F1.0%2Fembed&#038;url=https%3A%2F%2Fwww.aes.id.au%2F%3Fp%3D387" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.aes.id.au/index.php?rest_route=%2Foembed%2F1.0%2Fembed&#038;url=https%3A%2F%2Fwww.aes.id.au%2F%3Fp%3D387&#038;format=xml" />
+<link rel="stylesheet" type="text/css" media="screen" href="wp-content/plugins/hreview-support-for-editor/hreview.css" /><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script type='text/javascript'>document.cookie = 'quads_browser_width='+screen.width;</script><style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><!-- Vipers Video Quicktags v6.5.2 | http://www.viper007bond.com/wordpress-plugins/vipers-video-quicktags/ -->
+<style type="text/css">
+.vvqbox { display: block; max-width: 100%; visibility: visible !important; margin: 10px auto; } .vvqbox img { max-width: 100%; height: 100%; } .vvqbox object { max-width: 100%; } 
+</style>
+<script type="text/javascript">
+// <![CDATA[
+	var vvqflashvars = {};
+	var vvqparams = { wmode: "opaque", allowfullscreen: "true", allowscriptaccess: "always" };
+	var vvqattributes = {};
+	var vvqexpressinstall = "https://www.aes.id.au/wp-content/plugins/vipers-video-quicktags/resources/expressinstall.swf";
+// ]]>
+</script>
+		<style type="text/css" id="twentyfifteen-header-css">
+				.site-header {
+
+			/*
+			 * No shorthand so the Customizer can override individual properties.
+			 * @see https://core.trac.wordpress.org/ticket/31460
+			 */
+			background-image: url(https://www.aes.id.au/wp-content/uploads/2015/04/cropped-BlogHeader_resize1.jpg);
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			-webkit-background-size: cover;
+			-moz-background-size:    cover;
+			-o-background-size:      cover;
+			background-size:         cover;
+		}
+
+		@media screen and (min-width: 59.6875em) {
+			body:before {
+
+				/*
+				 * No shorthand so the Customizer can override individual properties.
+				 * @see https://core.trac.wordpress.org/ticket/31460
+				 */
+				background-image: url(https://www.aes.id.au/wp-content/uploads/2015/04/cropped-BlogHeader_resize1.jpg);
+				background-repeat: no-repeat;
+				background-position: 100% 50%;
+				-webkit-background-size: cover;
+				-moz-background-size:    cover;
+				-o-background-size:      cover;
+				background-size:         cover;
+				border-right: 0;
+			}
+
+			.site-header {
+				background: transparent;
+			}
+		}
+				</style>
+				<style id="wp-custom-css">
+			.img-border > figure {
+   border-style:solid;
+   border-width: 1px;
+   border-color: #000;
+}		</style>
+		</head>
+
+<body class="post-template-default single single-post postid-387 single-format-standard wp-embed-responsive">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="index.html%3Fp=387.html#content">Skip to content</a>
+
+	<div id="sidebar" class="sidebar">
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-branding">
+										<p class="site-title"><a href="https://www.aes.id.au/" rel="home">Andrew E. Scott</a></p>
+												<p class="site-description">It&#039;s all about me, really.</p>
+										<button class="secondary-toggle">Menu and widgets</button>
+			</div><!-- .site-branding -->
+		</header><!-- .site-header -->
+
+			<div id="secondary" class="secondary">
+
+		
+		
+					<div id="widget-area" class="widget-area" role="complementary">
+				<aside id="search-5" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://www.aes.id.au/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit screen-reader-text" value="Search" />
+			</form></aside><aside id="linkcat-3" class="widget widget_links"><h2 class="widget-title">Friends and Family</h2>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.99sauces.com" title="Favourite foodie site">99sauces</a>
+Favourite foodie site</li>
+<li><a href="http://kimbob-blog.blogspot.com/" rel="friend met" title="and Hyun Jeong">Bob</a>
+and Hyun Jeong</li>
+<li><a href="http://del.icio.us/andrewescott">Bookmarks</a></li>
+<li><a href="http://blog.clueful.com.au/" rel="friend met">Brendan</a></li>
+<li><a href="http://chartingtransport.wordpress.com/" rel="friend met" title="Transport charts">Chris</a>
+Transport charts</li>
+<li><a href="http://accidentlykellystreet.wordpress.com/" rel="friend met" target="_blank">Claire</a></li>
+<li><a href="http://guylipman.com/" rel="friend met" target="_blank">Guy</a></li>
+<li><a href="http://jennyagainstthegrain.wordpress.com/">Jenny</a></li>
+<li><a href="http://www.thescotts.info" rel="spouse" title="Combined site with Kate">Kate</a>
+Combined site with Kate</li>
+<li><a href="http://www.linkylouphotography.blogspot.com/">LinkyLou Photography</a></li>
+<li><a href="http://linkylou.blogspot.com/" rel="friend met" title="travel blog">Lynn</a>
+travel blog</li>
+<li><a href="http://www.linkyloulists.blogspot.com" rel="friend met" title="book reviews">Lynn</a>
+book reviews</li>
+<li><a href="http://melissenova.com/">Melis</a></li>
+<li><a href="http://nainaindrawati.blogspot.com/" rel="friend met" title="by Aditya">Naina</a>
+by Aditya</li>
+<li><a href="http://www.peterwills.com/blog/" rel="met co-worker">Peter</a></li>
+<li><a href="http://bickerbike.wordpress.com/" rel="friend met" target="_blank">Phil</a></li>
+<li><a href="http://flickr.com/photos/andrewescott" rel="me" title="My pictures">Photos</a>
+My pictures</li>
+<li><a href="http://melbournerecipes.wordpress.com/">Recipe Club</a></li>
+<li><a href="http://scream-stress.blogspot.com/" rel="friend met">Screamstress</a></li>
+<li><a href="http://www.tpa-online.com.au/" title="Tim &#038; Lynne&#8217;s company">TPA</a>
+Tim &#038; Lynne&#8217;s company</li>
+<li><a href="http://twitter.com/andrewescott" rel="me">Twitter</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-645" class="widget widget_links"><h2 class="widget-title">Interesting</h2>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.avc.com/">A VC</a></li>
+<li><a href="http://babblingvc.typepad.com/">Babbling VC</a></li>
+<li><a href="http://www.bothsidesofthetable.com/">Both Sides of the Table</a></li>
+<li><a href="http://chinageeks.org/">ChinaGeeks</a></li>
+<li><a href="http://natashadragun.com/" rel="acquaintance met">Consummate Traveller</a></li>
+<li><a href="http://www.feld.com/wp/">Feld Thoughts</a></li>
+<li><a href="http://www.fluteprac.com" title="Flute practice app">FlutePrac</a></li>
+<li><a href="http://exchange.telstra.com.au/author/hugh-bradlow/" rel="met co-worker">Hugh Bradlow</a></li>
+<li><a href="http://jasonbstanding.com/">jasonbstanding</a></li>
+<li><a href="http://www.jwtintelligence.com/">JWT Intelligence</a></li>
+<li><a href="http://lsvp.wordpress.com/">Lightspeed Venture Partners</a></li>
+<li><a href="http://franksting.net.au/">Making Hay</a></li>
+<li><a href="http://worldaccordingtonathan.blogspot.com.au/" rel="met colleague">Nathan Bell</a></li>
+<li><a href="http://www.groundswell.fi/sim/" rel="met co-worker">Only Slightly Bent</a></li>
+<li><a href="http://colby.id.au/">PC Thoughts</a></li>
+<li><a href="http://www.point-a-point-b.com/" title="Timetable app">PointAPointB</a></li>
+<li><a href="http://prometheusink.com/">Prometheus Ink</a></li>
+<li><a href="http://blog.rpdata.com/">RP Data Research</a></li>
+<li><a href="http://mikehickinbotham.posterous.com/">terra incognita</a></li>
+<li><a href="http://www.unconventionaleconomist.com/">The Unconvential Economist</a></li>
+<li><a href="http://worldaccordingtonathan.blogspot.hk/" rel="met colleague" target="_blank">The World According to</a></li>
+<li><a href="http://blog.tonycamilli.com/" rel="met co-worker">Tony</a></li>
+<li><a href="http://www.visionmobile.com/blog/">VisionMobile</a></li>
+<li><a href="http://willdonovan.blogspot.com/" rel="acquaintance met">willdonovan</a></li>
+
+	</ul>
+</aside>
+<aside id="pages-2" class="widget widget_pages"><h2 class="widget-title">Pages</h2><nav role="navigation" aria-label="Pages">
+			<ul>
+				<li class="page_item page-item-2"><a href="index.html%3Fp=2.html">About</a></li>
+<li class="page_item page-item-10"><a href="index.html%3Fp=10.html">Best Man Speech</a></li>
+<li class="page_item page-item-14"><a href="index.html%3Fp=14.html">Breakfast Quotes</a></li>
+<li class="page_item page-item-504"><a href="index.html%3Fp=504.html">Comment Policy</a></li>
+<li class="page_item page-item-7"><a href="index.html%3Fp=7.html">Curriculum Vitae</a></li>
+<li class="page_item page-item-13"><a href="index.html%3Fp=13.html">Holiday Snaps</a></li>
+<li class="page_item page-item-28"><a href="index.html%3Fp=28.html">hReview WordPress Plugin</a></li>
+<li class="page_item page-item-3"><a href="index.html%3Fp=3.html">Investment Book Reviews</a></li>
+<li class="page_item page-item-5"><a href="index.html%3Fp=5.html">Investment Links</a></li>
+<li class="page_item page-item-4"><a href="index.html%3Fp=4.html">Positive Gearing Analysis</a></li>
+<li class="page_item page-item-8"><a href="index.html%3Fp=8.html">Publications</a></li>
+<li class="page_item page-item-24"><a href="index.html%3Fp=24.html">Reviewers&#8217; Manifesto</a></li>
+<li class="page_item page-item-9"><a href="index.html%3Fp=9.html">Software</a></li>
+<li class="page_item page-item-11"><a href="index.html%3Fp=11.html">Wi-Fi Performance</a></li>
+<li class="page_item page-item-12"><a href="index.html%3Fp=12.html">Wi-Fi Test Results</a></li>
+			</ul>
+
+			</nav></aside><aside id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widget-title">Recent Comments</h2><nav role="navigation" aria-label="Recent Comments"><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">Beck Peng</span> on <a href="index.html%3Fp=1169.html#comment-731330">Can we talk about the back button?</a></li><li class="recentcomments"><span class="comment-author-link"><a href='index.html' rel='external nofollow ugc' class='url'>andrew</a></span> on <a href="https://www.aes.id.au/?p=197#comment-670362">One Tin Slice recipe</a></li><li class="recentcomments"><span class="comment-author-link"><a href='https://mashable.com' rel='external nofollow ugc' class='url'>mashable.com</a></span> on <a href="https://www.aes.id.au/?p=782#comment-647021">Book Review &#8211; Steve Jobs</a></li><li class="recentcomments"><span class="comment-author-link"><a href='https://rnd.is.telkomuniversity.ac.id/' rel='external nofollow ugc' class='url'>NOVIAN</a></span> on <a href="index.html%3Fp=949.html#comment-645522">The Amazing Bitcoin</a></li><li class="recentcomments"><span class="comment-author-link"><a href='index.html' rel='external nofollow ugc' class='url'>andrew</a></span> on <a href="index.html%3Fp=1032.html#comment-617243">Wrist Computers</a></li></ul></nav></aside><aside id="tag_cloud-2" class="widget widget_tag_cloud"><h2 class="widget-title">Tags</h2><nav role="navigation" aria-label="Tags"><div class="tagcloud"><ul class='wp-tag-cloud' role='list'>
+	<li><a href="index.html%3Ftag=apple.html" class="tag-cloud-link tag-link-38 tag-link-position-1" style="font-size: 10.065573770492pt;" aria-label="apple (5 items)">apple</a></li>
+	<li><a href="index.html%3Ftag=australia.html" class="tag-cloud-link tag-link-47 tag-link-position-2" style="font-size: 18.098360655738pt;" aria-label="Australia (29 items)">Australia</a></li>
+	<li><a href="index.html%3Ftag=baby.html" class="tag-cloud-link tag-link-147 tag-link-position-3" style="font-size: 10.065573770492pt;" aria-label="baby (5 items)">baby</a></li>
+	<li><a href="index.html%3Ftag=book.html" class="tag-cloud-link tag-link-17 tag-link-position-4" style="font-size: 18.672131147541pt;" aria-label="book (33 items)">book</a></li>
+	<li><a href="index.html%3Ftag=children.html" class="tag-cloud-link tag-link-363 tag-link-position-5" style="font-size: 10.065573770492pt;" aria-label="children (5 items)">children</a></li>
+	<li><a href="index.html%3Ftag=chocolate.html" class="tag-cloud-link tag-link-75 tag-link-position-6" style="font-size: 11.44262295082pt;" aria-label="chocolate (7 items)">chocolate</a></li>
+	<li><a href="index.html%3Ftag=christmas.html" class="tag-cloud-link tag-link-97 tag-link-position-7" style="font-size: 9.1475409836066pt;" aria-label="christmas (4 items)">christmas</a></li>
+	<li><a href="index.html%3Ftag=culture.html" class="tag-cloud-link tag-link-150 tag-link-position-8" style="font-size: 9.1475409836066pt;" aria-label="culture (4 items)">culture</a></li>
+	<li><a href="index.html%3Ftag=dessert.html" class="tag-cloud-link tag-link-167 tag-link-position-9" style="font-size: 10.868852459016pt;" aria-label="dessert (6 items)">dessert</a></li>
+	<li><a href="index.html%3Ftag=donna-hay.html" class="tag-cloud-link tag-link-123 tag-link-position-10" style="font-size: 11.44262295082pt;" aria-label="donna hay (7 items)">donna hay</a></li>
+	<li><a href="index.html%3Ftag=economics.html" class="tag-cloud-link tag-link-461 tag-link-position-11" style="font-size: 9.1475409836066pt;" aria-label="economics (4 items)">economics</a></li>
+	<li><a href="index.html%3Ftag=facebook.html" class="tag-cloud-link tag-link-296 tag-link-position-12" style="font-size: 10.868852459016pt;" aria-label="facebook (6 items)">facebook</a></li>
+	<li><a href="index.html%3Ftag=finance.html" class="tag-cloud-link tag-link-115 tag-link-position-13" style="font-size: 10.868852459016pt;" aria-label="finance (6 items)">finance</a></li>
+	<li><a href="index.html%3Ftag=food.html" class="tag-cloud-link tag-link-26 tag-link-position-14" style="font-size: 9.1475409836066pt;" aria-label="food (4 items)">food</a></li>
+	<li><a href="index.html%3Ftag=future.html" class="tag-cloud-link tag-link-266 tag-link-position-15" style="font-size: 10.868852459016pt;" aria-label="future (6 items)">future</a></li>
+	<li><a href="index.html%3Ftag=harry-potter.html" class="tag-cloud-link tag-link-9 tag-link-position-16" style="font-size: 8pt;" aria-label="Harry-Potter (3 items)">Harry-Potter</a></li>
+	<li><a href="index.html%3Ftag=history.html" class="tag-cloud-link tag-link-418 tag-link-position-17" style="font-size: 11.44262295082pt;" aria-label="history (7 items)">history</a></li>
+	<li><a href="index.html%3Ftag=innovation.html" class="tag-cloud-link tag-link-350 tag-link-position-18" style="font-size: 10.065573770492pt;" aria-label="innovation (5 items)">innovation</a></li>
+	<li><a href="index.html%3Ftag=internet.html" class="tag-cloud-link tag-link-513 tag-link-position-19" style="font-size: 10.065573770492pt;" aria-label="internet (5 items)">internet</a></li>
+	<li><a href="index.html%3Ftag=investment.html" class="tag-cloud-link tag-link-109 tag-link-position-20" style="font-size: 9.1475409836066pt;" aria-label="investment (4 items)">investment</a></li>
+	<li><a href="index.html%3Ftag=ipad.html" class="tag-cloud-link tag-link-551 tag-link-position-21" style="font-size: 9.1475409836066pt;" aria-label="ipad (4 items)">ipad</a></li>
+	<li><a href="index.html%3Ftag=iphone.html" class="tag-cloud-link tag-link-23 tag-link-position-22" style="font-size: 9.1475409836066pt;" aria-label="iphone (4 items)">iphone</a></li>
+	<li><a href="index.html%3Ftag=melbourne.html" class="tag-cloud-link tag-link-10 tag-link-position-23" style="font-size: 14.885245901639pt;" aria-label="melbourne (15 items)">melbourne</a></li>
+	<li><a href="index.html%3Ftag=mobile.html" class="tag-cloud-link tag-link-37 tag-link-position-24" style="font-size: 10.065573770492pt;" aria-label="mobile (5 items)">mobile</a></li>
+	<li><a href="index.html%3Ftag=movie.html" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 17.868852459016pt;" aria-label="movie (28 items)">movie</a></li>
+	<li><a href="index.html%3Ftag=music.html" class="tag-cloud-link tag-link-104 tag-link-position-26" style="font-size: 10.065573770492pt;" aria-label="music (5 items)">music</a></li>
+	<li><a href="index.html%3Ftag=online.html" class="tag-cloud-link tag-link-237 tag-link-position-27" style="font-size: 9.1475409836066pt;" aria-label="online (4 items)">online</a></li>
+	<li><a href="index.html%3Ftag=parenting.html" class="tag-cloud-link tag-link-245 tag-link-position-28" style="font-size: 10.065573770492pt;" aria-label="parenting (5 items)">parenting</a></li>
+	<li><a href="index.html%3Ftag=philosophy.html" class="tag-cloud-link tag-link-460 tag-link-position-29" style="font-size: 10.065573770492pt;" aria-label="philosophy (5 items)">philosophy</a></li>
+	<li><a href="index.html%3Ftag=property.html" class="tag-cloud-link tag-link-86 tag-link-position-30" style="font-size: 13.049180327869pt;" aria-label="property (10 items)">property</a></li>
+	<li><a href="index.html%3Ftag=raspberry-pi.html" class="tag-cloud-link tag-link-849 tag-link-position-31" style="font-size: 9.1475409836066pt;" aria-label="raspberry pi (4 items)">raspberry pi</a></li>
+	<li><a href="index.html%3Ftag=real-estate.html" class="tag-cloud-link tag-link-87 tag-link-position-32" style="font-size: 11.44262295082pt;" aria-label="real-estate (7 items)">real-estate</a></li>
+	<li><a href="index.html%3Ftag=recipe.html" class="tag-cloud-link tag-link-41 tag-link-position-33" style="font-size: 17.754098360656pt;" aria-label="recipe (27 items)">recipe</a></li>
+	<li><a href="index.html%3Ftag=review.html" class="tag-cloud-link tag-link-12 tag-link-position-34" style="font-size: 22pt;" aria-label="review (65 items)">review</a></li>
+	<li><a href="index.html%3Ftag=science.html" class="tag-cloud-link tag-link-312 tag-link-position-35" style="font-size: 10.868852459016pt;" aria-label="science (6 items)">science</a></li>
+	<li><a href="index.html%3Ftag=software.html" class="tag-cloud-link tag-link-368 tag-link-position-36" style="font-size: 10.868852459016pt;" aria-label="software (6 items)">software</a></li>
+	<li><a href="index.html%3Ftag=sony.html" class="tag-cloud-link tag-link-156 tag-link-position-37" style="font-size: 9.1475409836066pt;" aria-label="sony (4 items)">sony</a></li>
+	<li><a href="index.html%3Ftag=speech.html" class="tag-cloud-link tag-link-21 tag-link-position-38" style="font-size: 10.065573770492pt;" aria-label="speech (5 items)">speech</a></li>
+	<li><a href="index.html%3Ftag=statistics.html" class="tag-cloud-link tag-link-81 tag-link-position-39" style="font-size: 12.590163934426pt;" aria-label="statistics (9 items)">statistics</a></li>
+	<li><a href="index.html%3Ftag=superannuation.html" class="tag-cloud-link tag-link-84 tag-link-position-40" style="font-size: 9.1475409836066pt;" aria-label="superannuation (4 items)">superannuation</a></li>
+	<li><a href="index.html%3Ftag=technology.html" class="tag-cloud-link tag-link-225 tag-link-position-41" style="font-size: 15.229508196721pt;" aria-label="technology (16 items)">technology</a></li>
+	<li><a href="index.html%3Ftag=toastmasters.html" class="tag-cloud-link tag-link-52 tag-link-position-42" style="font-size: 10.065573770492pt;" aria-label="toastmasters (5 items)">toastmasters</a></li>
+	<li><a href="index.html%3Ftag=tv.html" class="tag-cloud-link tag-link-268 tag-link-position-43" style="font-size: 10.065573770492pt;" aria-label="tv (5 items)">tv</a></li>
+	<li><a href="index.html%3Ftag=web.html" class="tag-cloud-link tag-link-4 tag-link-position-44" style="font-size: 8pt;" aria-label="web (3 items)">web</a></li>
+	<li><a href="index.html%3Ftag=women.html" class="tag-cloud-link tag-link-78 tag-link-position-45" style="font-size: 9.1475409836066pt;" aria-label="women (4 items)">women</a></li>
+</ul>
+</div>
+</nav></aside><aside id="categories-1" class="widget widget_categories"><h2 class="widget-title">Categories</h2><nav role="navigation" aria-label="Categories">
+			<ul>
+					<li class="cat-item cat-item-1"><a href="index.html%3Fcat=1.html" title="Sometimes the words just flow and they can&#039;t be stopped.">Musings</a> (177)
+</li>
+	<li class="cat-item cat-item-440"><a href="https://www.aes.id.au/?cat=440" title="Favourite cookery complete with instructions">Recipes</a> (28)
+</li>
+	<li class="cat-item cat-item-2"><a href="index.html%3Fcat=2.html" title="Views on books, movies or anything else">Reviews</a> (61)
+</li>
+			</ul>
+
+			</nav></aside><aside id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2><nav role="navigation" aria-label="Archives">
+			<ul>
+					<li><a href='index.html%3Fm=202105.html'>May 2021</a></li>
+	<li><a href='index.html%3Fm=202103.html'>March 2021</a></li>
+	<li><a href='index.html%3Fm=202101.html'>January 2021</a></li>
+	<li><a href='index.html%3Fm=201905.html'>May 2019</a></li>
+	<li><a href='index.html%3Fm=201904.html'>April 2019</a></li>
+	<li><a href='index.html%3Fm=201902.html'>February 2019</a></li>
+	<li><a href='index.html%3Fm=201707.html'>July 2017</a></li>
+	<li><a href='index.html%3Fm=201702.html'>February 2017</a></li>
+	<li><a href='index.html%3Fm=201609.html'>September 2016</a></li>
+	<li><a href='index.html%3Fm=201603.html'>March 2016</a></li>
+	<li><a href='index.html%3Fm=201511.html'>November 2015</a></li>
+	<li><a href='index.html%3Fm=201510.html'>October 2015</a></li>
+	<li><a href='index.html%3Fm=201508.html'>August 2015</a></li>
+	<li><a href='index.html%3Fm=201507.html'>July 2015</a></li>
+	<li><a href='index.html%3Fm=201502.html'>February 2015</a></li>
+	<li><a href='index.html%3Fm=201501.html'>January 2015</a></li>
+	<li><a href='index.html%3Fm=201410.html'>October 2014</a></li>
+	<li><a href='index.html%3Fm=201406.html'>June 2014</a></li>
+	<li><a href='index.html%3Fm=201405.html'>May 2014</a></li>
+	<li><a href='index.html%3Fm=201404.html'>April 2014</a></li>
+	<li><a href='index.html%3Fm=201403.html'>March 2014</a></li>
+	<li><a href='index.html%3Fm=201401.html'>January 2014</a></li>
+	<li><a href='index.html%3Fm=201306.html'>June 2013</a></li>
+	<li><a href='index.html%3Fm=201305.html'>May 2013</a></li>
+	<li><a href='index.html%3Fm=201304.html'>April 2013</a></li>
+	<li><a href='index.html%3Fm=201303.html'>March 2013</a></li>
+	<li><a href='index.html%3Fm=201301.html'>January 2013</a></li>
+	<li><a href='index.html%3Fm=201212.html'>December 2012</a></li>
+	<li><a href='index.html%3Fm=201211.html'>November 2012</a></li>
+	<li><a href='index.html%3Fm=201210.html'>October 2012</a></li>
+	<li><a href='index.html%3Fm=201209.html'>September 2012</a></li>
+	<li><a href='index.html%3Fm=201208.html'>August 2012</a></li>
+	<li><a href='index.html%3Fm=201207.html'>July 2012</a></li>
+	<li><a href='index.html%3Fm=201205.html'>May 2012</a></li>
+	<li><a href='index.html%3Fm=201204.html'>April 2012</a></li>
+	<li><a href='index.html%3Fm=201203.html'>March 2012</a></li>
+	<li><a href='index.html%3Fm=201202.html'>February 2012</a></li>
+	<li><a href='index.html%3Fm=201201.html'>January 2012</a></li>
+	<li><a href='index.html%3Fm=201112.html'>December 2011</a></li>
+	<li><a href='index.html%3Fm=201111.html'>November 2011</a></li>
+	<li><a href='index.html%3Fm=201110.html'>October 2011</a></li>
+	<li><a href='index.html%3Fm=201109.html'>September 2011</a></li>
+	<li><a href='index.html%3Fm=201108.html'>August 2011</a></li>
+	<li><a href='index.html%3Fm=201107.html'>July 2011</a></li>
+	<li><a href='index.html%3Fm=201106.html'>June 2011</a></li>
+	<li><a href='index.html%3Fm=201105.html'>May 2011</a></li>
+	<li><a href='index.html%3Fm=201104.html'>April 2011</a></li>
+	<li><a href='index.html%3Fm=201103.html'>March 2011</a></li>
+	<li><a href='index.html%3Fm=201102.html'>February 2011</a></li>
+	<li><a href='index.html%3Fm=201101.html'>January 2011</a></li>
+	<li><a href='index.html%3Fm=201012.html'>December 2010</a></li>
+	<li><a href='index.html%3Fm=201011.html'>November 2010</a></li>
+	<li><a href='index.html%3Fm=201010.html'>October 2010</a></li>
+	<li><a href='index.html%3Fm=201009.html'>September 2010</a></li>
+	<li><a href='index.html%3Fm=201008.html'>August 2010</a></li>
+	<li><a href='index.html%3Fm=201007.html'>July 2010</a></li>
+	<li><a href='index.html%3Fm=201006.html'>June 2010</a></li>
+	<li><a href='index.html%3Fm=201005.html'>May 2010</a></li>
+	<li><a href='index.html%3Fm=201004.html'>April 2010</a></li>
+	<li><a href='index.html%3Fm=201003.html'>March 2010</a></li>
+	<li><a href='index.html%3Fm=201002.html'>February 2010</a></li>
+	<li><a href='index.html%3Fm=201001.html'>January 2010</a></li>
+	<li><a href='index.html%3Fm=200912.html'>December 2009</a></li>
+	<li><a href='index.html%3Fm=200911.html'>November 2009</a></li>
+	<li><a href='index.html%3Fm=200910.html'>October 2009</a></li>
+	<li><a href='index.html%3Fm=200909.html'>September 2009</a></li>
+	<li><a href='index.html%3Fm=200908.html'>August 2009</a></li>
+	<li><a href='index.html%3Fm=200907.html'>July 2009</a></li>
+	<li><a href='index.html%3Fm=200906.html'>June 2009</a></li>
+	<li><a href='index.html%3Fm=200905.html'>May 2009</a></li>
+	<li><a href='index.html%3Fm=200904.html'>April 2009</a></li>
+	<li><a href='index.html%3Fm=200903.html'>March 2009</a></li>
+	<li><a href='index.html%3Fm=200902.html'>February 2009</a></li>
+	<li><a href='index.html%3Fm=200901.html'>January 2009</a></li>
+	<li><a href='index.html%3Fm=200812.html'>December 2008</a></li>
+	<li><a href='index.html%3Fm=200811.html'>November 2008</a></li>
+	<li><a href='index.html%3Fm=200810.html'>October 2008</a></li>
+	<li><a href='index.html%3Fm=200809.html'>September 2008</a></li>
+	<li><a href='index.html%3Fm=200808.html'>August 2008</a></li>
+	<li><a href='index.html%3Fm=200807.html'>July 2008</a></li>
+	<li><a href='index.html%3Fm=200806.html'>June 2008</a></li>
+	<li><a href='index.html%3Fm=200805.html'>May 2008</a></li>
+	<li><a href='index.html%3Fm=200804.html'>April 2008</a></li>
+	<li><a href='index.html%3Fm=200803.html'>March 2008</a></li>
+	<li><a href='index.html%3Fm=200802.html'>February 2008</a></li>
+	<li><a href='index.html%3Fm=200801.html'>January 2008</a></li>
+	<li><a href='index.html%3Fm=200712.html'>December 2007</a></li>
+	<li><a href='index.html%3Fm=200711.html'>November 2007</a></li>
+	<li><a href='index.html%3Fm=200710.html'>October 2007</a></li>
+	<li><a href='index.html%3Fm=200709.html'>September 2007</a></li>
+	<li><a href='index.html%3Fm=200708.html'>August 2007</a></li>
+	<li><a href='index.html%3Fm=200707.html'>July 2007</a></li>
+	<li><a href='index.html%3Fm=200706.html'>June 2007</a></li>
+	<li><a href='index.html%3Fm=200705.html'>May 2007</a></li>
+	<li><a href='index.html%3Fm=200704.html'>April 2007</a></li>
+	<li><a href='index.html%3Fm=200703.html'>March 2007</a></li>
+	<li><a href='index.html%3Fm=200702.html'>February 2007</a></li>
+	<li><a href='index.html%3Fm=200701.html'>January 2007</a></li>
+	<li><a href='index.html%3Fm=200612.html'>December 2006</a></li>
+	<li><a href='index.html%3Fm=200611.html'>November 2006</a></li>
+	<li><a href='index.html%3Fm=200610.html'>October 2006</a></li>
+	<li><a href='index.html%3Fm=200609.html'>September 2006</a></li>
+	<li><a href='index.html%3Fm=200608.html'>August 2006</a></li>
+	<li><a href='index.html%3Fm=200607.html'>July 2006</a></li>
+			</ul>
+
+			</nav></aside><aside id="text-3" class="widget widget_text"><h2 class="widget-title">Contact Details</h2>			<div class="textwidget"><ul class="reviewer vcard">
+  <div class="fn n"><span class="given-name">Andrew</span>
+ <span class="additional-name">E.</span>
+ <span class="family-name">Scott</span></div>
+  <div class="org">Telstra</div>
+  <div>Work: <span class="tel">+61-417-137-515</span></div>
+  <div>Timezone: <span class="tz">+10:00</div>
+</ul></div>
+		</aside><aside id="text-4" class="widget widget_text"><h2 class="widget-title">Disclaimer</h2>			<div class="textwidget">Opinions here are mine and not my employer's.</div>
+		</aside><aside id="meta-4" class="widget widget_meta"><h2 class="widget-title">Meta</h2><ul>
+<li><a href="wp-login.php.html">Log in</a></li>
+<li><a href="https://xaes.securecnc.net/CNC/index.cgi">Host Admin</a></li>
+</ul>
+</aside>			</div><!-- .widget-area -->
+		
+	</div><!-- .secondary -->
+
+	</div><!-- .sidebar -->
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+<article id="post-387" class="post-387 post type-post status-publish format-standard hentry category-musings tag-a-modest-proposal tag-australia tag-climate-change tag-greenhouse-gasses tag-jonathan-swift tag-philosophy tag-vegetarianism">
+	
+	<header class="entry-header">
+		<h1 class="entry-title">A Modest Proposal</h1>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<div class="zemanta-img" style="margin: 1em; display: block;">
+<div>
+<dl class="wp-caption alignright" style="width: 140px;">
+<dt class="wp-caption-dt"><a href="http://commons.wikipedia.org/wiki/Image:Tony_Abbott.png"><img loading="lazy" title="Tony Abbott" src="http://upload.wikimedia.org/wikipedia/commons/d/d4/Tony_Abbott.png" alt="Tony Abbott" width="130" height="189" /></a></dt>
+<dd class="wp-caption-dd zemanta-img-attribution" style="font-size: 0.8em;">Image via <a href="http://commons.wikipedia.org/wiki/Image:Tony_Abbott.png">Wikipedia</a></dd>
+</dl>
+</div>
+</div>
+<p>Dear <a href="http://www.tonyabbott.com.au/">Tony Abbott</a>,</p>
+<p>Your <a href="http://www.heraldsun.com.au/news/national/tony-abbott-reveals-tax-free-carbon-plan/story-e6frf7l6-1225806386717">new climate change policy for the Liberal Party</a> is certainly interesting: a 5% reduction in national emission levels from those of the year 2000 by the year 2020, but without implementing an energy trading scheme or carbon tax. Although it doesn&#8217;t sound like you&#8217;ve quite settled how you&#8217;ll achieve this yet, you are looking at options such more regulations and new government subsidies. You are clearly open to options which the Labor Party is traditionally closed to.</p>
+<p>However, as someone who might be willing to take on radical yet reasonable policy positions, I would like you to consider a simple measure that will cost the government nothing, yet easily achieve your target. Pass a law that makes it illegal to eat meat.</p>
+<p>The United Nations&#8217; Food and Agriculture Organisation 2006 report <a href="http://www.fao.org/docrep/010/a0701e/a0701e00.HTM">&#8220;Livestock&#8217;s Long Shadow&#8221;</a> found that 18% of global greenhouse gas emissions come from the livestock sector, which is more than the emissions from all the cars in the world. We have been looking for emission savings in all the wrong places.</p>
+<p>Having Australia become the first country to go vegetarian would demonstrate global leadership and really show those United Nations guys that we can do without their pesky energy trading scheme. If China can introduce a one child policy, then surely we can introduce a one food policy. <a href="http://www.hinduonnet.com/2006/08/14/stories/2006081403771200.htm">Almost a third of Indian people are vegetarian</a>, which is like if seventeen entire Australias were vegetarian. The global thinking is consistent: I have been assured by a very knowing fellow in London (author of the <a href="http://www.hm-treasury.gov.uk/sternreview_index.htm">Stern Review on the Economics of Climate Change</a>) that <a href="http://www.timesonline.co.uk/tol/news/environment/article6891362.ece">people ought to go vegetarian for the climate&#8217;s sake</a>.</p>
+<p>According to the Australian Government&#8217;s Department of Climate Change, <a href="http://www.climatechange.gov.au/~/media/publications/projections/tracking-to-kyoto-and-2020.ashx">&#8220;Tracking to Kyoto and 2020&#8221; report</a>, our emission levels in the year 2000 were 553 million tonnes of CO2-equivalent gasses. A 5% reduction is a reduction of 27.7 million tonnes. Vegetarianism will easily achieve this.</p>
+<p>As the <a href="http://www.garnautreview.org.au/chp7.htm">Garnaut Climate Change Review</a> notes, &#8220;Australia’s per capita emissions arising from agriculture are more than six times the world average, more than four times the OECD average&#8221; and the Agriculture, Forestry &amp; Fishing industry is the largest industrial contributor to emissions, accounting for 29.3% of industrial emissions. Garnaut attributes 123.7 million tonnes of emissions to beef cattle alone.</p>
+<p><a href="http://www.themainmeal.com.au/NR/rdonlyres/C13DABB5-47BC-4541-938C-BD6E4B56A725/0/Factsheet3Howmuchmeatareweeating_72k.pdf">Meat &amp; Livestock Australia estimates</a> that &#8220;50.7kg of red meat was available for consumption by each person in Australia in 2006-07&#8221; while a <a href="http://www.smh.com.au/news/environment/limit-meat-eating-to-tackle-climate-change-study/2007/09/13/1189276861060.html">Japanese study</a> estimates that each kilo of beef &#8220;generates the equivalent of 36.4 kilograms of carbon dioxide&#8221;. At a population of 20 million, that is an equivalent of about 37 million tonnes of greenhouse gas from meat eating.</p>
+<p>Even more dramatically, an analysis by the Vegetarian Network Victoria forecasts <a href="http://www.vnv.org.au/site/index.php?option=com_content&amp;task=view&amp;id=122&amp;Itemid=61">Australia becoming completely carbon neutral within 3-5 decades of adopting vegetarianism</a> if land currently used by cattle was reforested. Ask the Labor Party if their tax is able to achieve that.</p>
+<p>There is also the opportunity to snooker <a href="http://www.theage.com.au/opinion/politics/abbotts-climate-change-policy-is-bullshit-20091207-kdmb.html">your colleague Mr Turnbull</a>, who seems to be positioning himself as a sort of Australian Al Gore. By adopting vegetarianism, you can occupy the highest of moral ground, while also being against taxation and climate change. High ground is the safest position to be in these troubled times.</p>
+<p>Your role-model and mentor John Howard took strong measures in 1996 to <a href="http://www.crikey.com.au/2008/09/09/what-john-howard-could-teach-the-us-about-gun-control/">ban all the dangerous guns</a> (thank goodness we got to keep the safe guns). This type of bold leadership is what we need in the climate crisis of 2009.</p>
+<p>Yours faithfully,</p>
+<p>Andrew</p>
+<h6 class="zemanta-related-title" style="font-size: 1em;">Related articles by Zemanta</h6>
+<ul class="zemanta-article-ul">
+<li class="zemanta-article-ul-li"><a href="http://andrewsullivan.theatlantic.com/the_daily_dish/2009/12/busting-cap-and-trade.html">Busting Cap And Trade</a> (andrewsullivan.theatlantic.com)</li>
+<li class="zemanta-article-ul-li"><a href="http://r.zemanta.com/?u=http%3A//www.guardian.co.uk/commentisfree/2009/dec/02/australia-politics-climate-change-copenhagen&amp;a=10121373&amp;rid=345cd1b2-e9f7-4596-b35c-2723598ab851&amp;e=644b5ae905f5a0778f13647326acef26">Australia and climate change: The pitiless blue sky</a> (guardian.co.uk)</li>
+<li class="zemanta-article-ul-li"><a href="http://r.zemanta.com/?u=http%3A//www.telegraph.co.uk/news/newstopics/politics/6729833/Gordon-Brown-climate-change-sceptics-are-flat-earthers.html&amp;a=10193002&amp;rid=345cd1b2-e9f7-4596-b35c-2723598ab851&amp;e=205554089a8c4b8221f58b2af7048261">Gordon Brown: climate-change sceptics are &#8216;flat-earthers&#8217;</a> (telegraph.co.uk)</li>
+<li class="zemanta-article-ul-li"><a href="http://r.zemanta.com/?u=http%3A//www.telegraph.co.uk/expat/expatnews/6726724/Australias-prime-minister-faces-a-new-opponent-using-new-tactics.html&amp;a=10184324&amp;rid=345cd1b2-e9f7-4596-b35c-2723598ab851&amp;e=53da2575c73d9ed1d98be93344b34306">Australia&#8217;s prime minister faces a new opponent, using new tactics</a> (telegraph.co.uk)</li>
+</ul>
+<div class="zemanta-pixie" style="margin-top: 10px; height: 15px;"><a class="zemanta-pixie-a" title="Reblog this post [with Zemanta]" href="http://reblog.zemanta.com/zemified/345cd1b2-e9f7-4596-b35c-2723598ab851/"><img class="zemanta-pixie-img" style="border: medium none; float: right;" src="http://img.zemanta.com/reblog_e.png?x-id=345cd1b2-e9f7-4596-b35c-2723598ab851" alt="Reblog this post [with Zemanta]" /></a></div>
+
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="index.html%3Fp=387.html" rel="bookmark"><time class="entry-date published updated" datetime="2009-12-07T22:06:58+11:00">December 7, 2009</time></a></span><span class="byline"><span class="author vcard"><span class="screen-reader-text">Author </span><a class="url fn n" href="index.html%3Fauthor=1.html">andrew</a></span></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="index.html%3Fcat=1.html" rel="category">Musings</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="index.html%3Ftag=a-modest-proposal.html" rel="tag">a modest proposal</a>, <a href="index.html%3Ftag=australia.html" rel="tag">Australia</a>, <a href="index.html%3Ftag=climate-change.html" rel="tag">climate change</a>, <a href="index.html%3Ftag=greenhouse-gasses.html" rel="tag">greenhouse gasses</a>, <a href="index.html%3Ftag=jonathan-swift.html" rel="tag">jonathan swift</a>, <a href="index.html%3Ftag=philosophy.html" rel="tag">philosophy</a>, <a href="index.html%3Ftag=vegetarianism.html" rel="tag">vegetarianism</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-387 -->
+
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			17 thoughts on &ldquo;A Modest Proposal&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-68025" class="comment even thread-even depth-1">
+			<article id="div-comment-68025" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c45a782597de87f48be2aca9946838df?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/c45a782597de87f48be2aca9946838df?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn">Bob</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68025"><time datetime="2009-12-08T15:54:30+11:00">December 8, 2009 at 3:54 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Excellent point, which is why I feel almost ashamed to point out some spurious use of statistics.  Sadly, the pedantic nerd in me just can&#8217;t help it.</p>
+<p>“Australia’s per capita emissions arising from agriculture are more than six times the world average, more than four times the OECD average.”  Aussie emissions are higher per capita not just because we are a mammoth consumer (which may well be true) but also because we&#8217;re a mammoth exporter.  According to <a href="http://www.dfat.gov.au/trade/negotiations/trade_in_agriculture.html" rel="nofollow">DFAT</a>, two thirds of our production feeds other nationalities.</p>
+<p>Emissions should be pegged against consumption, not production.  (Unless you claim it&#8217;s our moral duty not to sell produce to humans of other nationalities &#8212; an interesting philosphy that Mr. Abbott could choose to embrace.)</p>
+<p>Well, regardless, you&#8217;ve convinced me to cut meat out of several meals a week.  (Shamefully, and I mean truly shamefully, I&#8217;m just not ready to go cold tofurkey.)</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68025#respond' data-commentid="68025" data-postid="387" data-belowelement="div-comment-68025" data-respondelement="respond" data-replyto="Reply to Bob" aria-label='Reply to Bob'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68026" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-68026" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c45a782597de87f48be2aca9946838df?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/c45a782597de87f48be2aca9946838df?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn">Bob</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68026"><time datetime="2009-12-08T16:04:05+11:00">December 8, 2009 at 4:04 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>By the way, do you know what the statistics on eggs &amp; dairy are like?  I couldn&#8217;t find anything easily.  I&#8217;m trying to calibrate my decisions here.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68026#respond' data-commentid="68026" data-postid="387" data-belowelement="div-comment-68026" data-respondelement="respond" data-replyto="Reply to Bob" aria-label='Reply to Bob'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68034" class="comment byuser comment-author-admin bypostauthor even thread-even depth-1">
+			<article id="div-comment-68034" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a9dae927aeac970809f1b180f75f3a15?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/a9dae927aeac970809f1b180f75f3a15?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn"><a href='index.html' rel='external nofollow ugc' class='url'>andrew</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68034"><time datetime="2009-12-08T20:43:26+11:00">December 8, 2009 at 8:43 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I meant to put up a comment earlier with the Australia red meat industry&#8217;s own view about its contribution to climate change, to provide at least some semblance of balance. Anyway, here is the link.. <a href="http://www.mla.com.au/NR/rdonlyres/FC3888A5-F857-4B78-B770-AE230D0FD8E7/0/RedmeatintheAustralianenvironment.pdf" rel="nofollow ugc">http://www.mla.com.au/NR/rdonlyres/FC3888A5-F857-4B78-B770-AE230D0FD8E7/0/RedmeatintheAustralianenvironment.pdf</a></p>
+<p>@Bob, yes, you&#8217;re absolutely right about the export vs. domestic consumption. This is why I also included the 50.7kg / person consumption figure. If I was being more rigorous I would try to link emissions to head of cattle (or square kms of cattle land) rather than kg of beef, but I was more interested in making extreme statements than considered ones in this post. :)</p>
+<p>According to the Garnaut report, Dairy cattle is responsible for 10.7 million tonnes. I read somewhere that although there are much fewer of them, there&#8217;s more methane produced. Don&#8217;t know about eggs specifically, but the whole poultry industry comes to 1.0 million tonnes according to Garnaut.</p>
+<p>I&#8217;d expect fish and game (roo, etc.) to be pretty light in terms of their impacts.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68034#respond' data-commentid="68034" data-postid="387" data-belowelement="div-comment-68034" data-respondelement="respond" data-replyto="Reply to andrew" aria-label='Reply to andrew'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68053" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-68053" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a6fefba0fc48ba550086ddf7439fb4c8?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/a6fefba0fc48ba550086ddf7439fb4c8?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn">Bron</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68053"><time datetime="2009-12-09T11:06:58+11:00">December 9, 2009 at 11:06 am</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>And yet another reason we have vegetarian or fish meals at least half of the week. In fact our red meat consumption is seriously low. Although free range chicken features quite highly. Anyone know about the impact of poultry farming?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68053#respond' data-commentid="68053" data-postid="387" data-belowelement="div-comment-68053" data-respondelement="respond" data-replyto="Reply to Bron" aria-label='Reply to Bron'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68055" class="comment even thread-even depth-1">
+			<article id="div-comment-68055" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c45a782597de87f48be2aca9946838df?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/c45a782597de87f48be2aca9946838df?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn">Bob</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68055"><time datetime="2009-12-09T11:58:17+11:00">December 9, 2009 at 11:58 am</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>So dairy cattle fart more than beef cattle?  </p>
+<p>I guess they&#8217;re older.</p>
+<p>The meat industry pamphlet seems to be mostly full of the usual vague qualified statements and feel-good greenwashing, but there&#8217;s one interesting stat in their defense.  They say that red-meat emissions are down 12% since 1990.  That&#8217;s actually pretty impressive (assuming true) compared to other industries.</p>
+<p>I&#8217;m amazed at how much more efficient chicken is.  Given what you say, we could slash by well more than 50%, just by becoming chickentarian.</p>
+<p>All this has made me wonder why the ecoterrorists are still firebombing housing developments, rather than working on bovine bioweaponry.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68055#respond' data-commentid="68055" data-postid="387" data-belowelement="div-comment-68055" data-respondelement="respond" data-replyto="Reply to Bob" aria-label='Reply to Bob'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68057" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-68057" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a6fefba0fc48ba550086ddf7439fb4c8?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/a6fefba0fc48ba550086ddf7439fb4c8?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn">Bron</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68057"><time datetime="2009-12-09T12:09:01+11:00">December 9, 2009 at 12:09 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Sorry, missed your chicken stats earlier.</p>
+<p>I heard on ABC news radio the other day about an interesting study in Australia at the moment where they are finding out which specific cows and sheep fart the least (not which breed, but which individuals), and are then using the less farting ones in breeding in the hope of breeding a less flatulent population for the future.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68057#respond' data-commentid="68057" data-postid="387" data-belowelement="div-comment-68057" data-respondelement="respond" data-replyto="Reply to Bron" aria-label='Reply to Bron'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68058" class="comment even thread-even depth-1">
+			<article id="div-comment-68058" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a6fefba0fc48ba550086ddf7439fb4c8?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/a6fefba0fc48ba550086ddf7439fb4c8?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn">Bron</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68058"><time datetime="2009-12-09T12:12:01+11:00">December 9, 2009 at 12:12 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Oh and yes, dairy cattle would produce more than beef cattle because beef cattle are slaughtered when young and tender, while dairy cattle go on producing babies and milk for as long as they can. </p>
+<p>So, if we cut out dairy too, we&#8217;re helping more, which is good, but sadly many things that replace dairy have palm oil in them, which is also a Very Bad Thing. </p>
+<p>I might move to Pemberton, grow my own organic veggies and raise free range chooks.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68058#respond' data-commentid="68058" data-postid="387" data-belowelement="div-comment-68058" data-respondelement="respond" data-replyto="Reply to Bron" aria-label='Reply to Bron'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68059" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-68059" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c45a782597de87f48be2aca9946838df?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/c45a782597de87f48be2aca9946838df?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn">Bob</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68059"><time datetime="2009-12-09T12:22:30+11:00">December 9, 2009 at 12:22 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>We&#8217;ve got burpless cucumbers, why not fartless cows?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68059#respond' data-commentid="68059" data-postid="387" data-belowelement="div-comment-68059" data-respondelement="respond" data-replyto="Reply to Bob" aria-label='Reply to Bob'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68062" class="comment byuser comment-author-admin bypostauthor even thread-even depth-1">
+			<article id="div-comment-68062" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a9dae927aeac970809f1b180f75f3a15?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/a9dae927aeac970809f1b180f75f3a15?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn"><a href='index.html' rel='external nofollow ugc' class='url'>andrew</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68062"><time datetime="2009-12-09T12:53:36+11:00">December 9, 2009 at 12:53 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>It&#8217;s not just the farting. It&#8217;s also the emissions from growing the feed, the impact of the manure, the energy in running the farm / abattoir, and the contribution from transport used through the supply chain. But that said.. <a href="http://www.theage.com.au/news/climate-watch/quest-to-make-cattle-fart-like-marsupials/2007/12/06/1196812922326.html" rel="nofollow ugc">http://www.theage.com.au/news/climate-watch/quest-to-make-cattle-fart-like-marsupials/2007/12/06/1196812922326.html</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68062#respond' data-commentid="68062" data-postid="387" data-belowelement="div-comment-68062" data-respondelement="respond" data-replyto="Reply to andrew" aria-label='Reply to andrew'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68080" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-68080" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/65c1411858d5f62e6972fcd59f3d4fe9?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/65c1411858d5f62e6972fcd59f3d4fe9?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn">T.A.</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68080"><time datetime="2009-12-09T21:11:05+11:00">December 9, 2009 at 9:11 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>For someone who claimed to be writing satire, you&#8217;re taking this discussion remarkably seriously Andrew!  While I haven&#8217;t spent much time looking into the science of this, I submit a few hypotheses for consideration:</p>
+<p>It is a little bit useless to look at the environmental life cycle of a product (red meat) in isolation, without also looking at what will replace it. People have evolved over a very long time to eat an omnivorous diet, and our bodies are far better at extracting certain nutrients from meat than from any other food source.  Iron is the most obvious example, but also zinc, vitamin B12, certain lipids and other nutrients are either not found in plant based foods, or else broken down and absorbed much more easily from meat than from other sources.  Thus, if you remove meat from the diet, you have to eat a lot more of other foodstuffs to absorb the same level of nutrients.  This means that you have to produce more to feed the same number of people, so you need more land clearing, more energy use etc.  You will shift the greenhouse emissions from one type of farming to another.  </p>
+<p>It is also not useful to compare the diets of people in a developed country with that of a third world nation, unless you also compare their overall health and lifespan as well.  I suggest that instead of trying to bring Australia’s standard of living down to that of India, it would be more useful to look for ways of raising India’s standard of living to that of Australia.  Before anyone gets on their high horse, I am well aware that many Indian people are vegetarian for religious reasons, but many are also vegetarian out of necessity, as clean fresh meat supplies are virtually non-existent in many parts of the country.</p>
+<p>Then of course, if Australians were legally forced into vegetarianism, have you considered the black market meat trade that would inevitably arise?  Would you really force honest farmers out of business to give preference to the mafia??  Like the mafioso really care about climate change, or animal welfare?</p>
+<p>Furthermore, the consumption rates you mention of red meat in Australia (50.7kg per year) are hardly excessive as part of a well balanced nutritious diet.  That works out to 139g per day, or just under 70g per meal, assuming you eat your meat at lunch and dinner only.  The CSIRO total wellbeing for life diet recommends a meat &amp;/or fish &amp;/or eggs intake of 300g per day, so in that context, 139g of red meat per day as an average is certainly not more than is recommended for good health.</p>
+<p>Lastly, I should add that I have heard colloquially that vegetarians fart far more than meat eating humans.  Thus, if you get rid of the red meat, you may be raising the gas levels in a much more local environment!</p>
+<p>P.S.:  Andrew, have I made Jonathan Swift proud yet??</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68080#respond' data-commentid="68080" data-postid="387" data-belowelement="div-comment-68080" data-respondelement="respond" data-replyto="Reply to T.A." aria-label='Reply to T.A.'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68274" class="comment even thread-even depth-1">
+			<article id="div-comment-68274" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/343c97e3b86ee857d7e126fb20c00841?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/343c97e3b86ee857d7e126fb20c00841?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn">Graham</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68274"><time datetime="2009-12-15T18:56:29+11:00">December 15, 2009 at 6:56 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I think this would be a false economy.  If we follow your argument through to its full conclusion, and we go all vegetarian, that means the elimination of all cows, chickens, sheep, tofupedes etc.  These engineered creatures are symbiotically dependent on our need for tasty steak for their own survival.  Why are we not culling polar bears or orangutans for farting?  Is the distinction between natural methane emissions and man made emissions really dictated by which particular animals we prefer to eat? This seems spurious to me.  When you consider the methane emissions of all terrestrial bacteria, I don&#8217;t think that my giving up ham is really  going to matter.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68274#respond' data-commentid="68274" data-postid="387" data-belowelement="div-comment-68274" data-respondelement="respond" data-replyto="Reply to Graham" aria-label='Reply to Graham'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68280" class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-68280" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a9dae927aeac970809f1b180f75f3a15?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/a9dae927aeac970809f1b180f75f3a15?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn"><a href='index.html' rel='external nofollow ugc' class='url'>andrew</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68280"><time datetime="2009-12-15T21:03:07+11:00">December 15, 2009 at 9:03 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>@Graham, it&#8217;s as real an economy as any other shaped by government regulation. However, you are reframing my argument. I was not proposing elimination of all animals; simply that we shouldn&#8217;t eat them here: removal of demand rather than supply, so to speak. If farmers wished to export them, to put them in a zoo, or train them to dance the tango then that would be entirely up to them.</p>
+<p>I&#8217;ve recently come across a report that claims total vegetarianism isn&#8217;t necessary &#8211; just cut back a bit on the meat. Worth linking to in this discussion..<br />
+<a href="http://www.ciwf.org.uk/what_we_do/factory_farming/eating_the_planet.aspx" rel="nofollow ugc">http://www.ciwf.org.uk/what_we_do/factory_farming/eating_the_planet.aspx</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68280#respond' data-commentid="68280" data-postid="387" data-belowelement="div-comment-68280" data-respondelement="respond" data-replyto="Reply to andrew" aria-label='Reply to andrew'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68307" class="comment even thread-even depth-1">
+			<article id="div-comment-68307" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c45a782597de87f48be2aca9946838df?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/c45a782597de87f48be2aca9946838df?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn">Bob</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68307"><time datetime="2009-12-16T10:07:39+11:00">December 16, 2009 at 10:07 am</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Wow, vegetarians are a threat to biodiversity?  To think that my son might only be able to see veal cattle in a museum!</p>
+<p>I suppose you could argue that the best way to save the dugong is to start eating it.  But that&#8217;s not exactly the point here. </p>
+<p>The point is that succulent farm-fresh dugong steaks would still be an order of magnitude more resource-intensive than bread, or say, lentil and chickpea lasagna.  (1 calorie from red meat causes about 30 times the CO2 emissions of 1 calorie from veg, according to a <a href="http://www.scribd.com/doc/24163/CO2-Emissions-of-Foods-and-Diets" rel="nofollow">report</a> from U Chicago.)  </p>
+<p>That one order of magnitude seems to be the difference between sustaining 1 billion meat eating humans, which seems just possible, and 10 billion meat eating humans, which is impossible.  So the key is:  eat dugong in very small amounts.</p>
+<p>Incidentally, we are killing native fauna for our agriculture, just not in so direct a manner.  So while you&#8217;re unlikely to find filet d&#8217;orangutan or numbat nuggets on your plate any time soon, you can rest assured that their methane footprint is being well taken care of.</p>
+<p>(&#8220;Arseprint?&#8221;)</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68307#respond' data-commentid="68307" data-postid="387" data-belowelement="div-comment-68307" data-respondelement="respond" data-replyto="Reply to Bob" aria-label='Reply to Bob'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68349" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-68349" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/65c1411858d5f62e6972fcd59f3d4fe9?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/65c1411858d5f62e6972fcd59f3d4fe9?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn">T.A.</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68349"><time datetime="2009-12-17T14:15:35+11:00">December 17, 2009 at 2:15 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Actually, Andrew I think it is you who is reframing your argument.  You started out by talking about legislatively imposed vegetarianism for the purposes of reducing greenhouse gas emissions.  I think we all agree that if we impose enforced vegetarianism on the population, putting the hapless cows in a zoo or teaching them to tango won&#8217;t reduce emissions one jot. You don&#8217;t want to use such a dirty word, but you are really talking about a mass cull. Otherwise there is no actual reduction in emissions.  Having said that, I&#8217;d pay good money to see cows tango!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68349#respond' data-commentid="68349" data-postid="387" data-belowelement="div-comment-68349" data-respondelement="respond" data-replyto="Reply to T.A." aria-label='Reply to T.A.'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68361" class="comment byuser comment-author-admin bypostauthor even thread-even depth-1">
+			<article id="div-comment-68361" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a9dae927aeac970809f1b180f75f3a15?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/a9dae927aeac970809f1b180f75f3a15?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn"><a href='index.html' rel='external nofollow ugc' class='url'>andrew</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68361"><time datetime="2009-12-17T20:41:45+11:00">December 17, 2009 at 8:41 pm</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>@T.A., my meat-eating friend, I think the proposal as it stands would affect lifestock numbers. Perhaps we would both agree that the number of cows and sheep required to satisfy the domestic demand of pretty much anything but eating them is lower than the numbers today. Australia Zoo has ~1,000 animals while there are currently about 120 million sheep. Although, that&#8217;s not really the point.</p>
+<p>It was more useful to phrase the proposal in terms of a change to the behaviour of individuals. I don&#8217;t believe that Tony Abbott could, or should, make meat-eating illegal. However, the original post is intended to challenge the reader about their own behaviour, and highlight the sacrifice and difficulty required to pursue a truly &#8220;moral&#8221; life. Particularly, as people like Noel Pearson have pointed out, some responses to climate change advocated by the well-off can have a tendency to adversely affect the poor.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68361#respond' data-commentid="68361" data-postid="387" data-belowelement="div-comment-68361" data-respondelement="respond" data-replyto="Reply to andrew" aria-label='Reply to andrew'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68370" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-68370" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/65c1411858d5f62e6972fcd59f3d4fe9?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/65c1411858d5f62e6972fcd59f3d4fe9?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn">T.A.</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68370"><time datetime="2009-12-18T01:31:06+11:00">December 18, 2009 at 1:31 am</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Oh?  So this is a discussion about morals now, is it??  I thought we were talking about policy and science… my bad!!</p>
+<p>In that case let me defend myself, since you are accusing me of vested interests.  I do not agree that it is morally good to be vegetarian.  However, for your information, whilst I am happy to hoe into a hearty T-bone every now and again, I eat vegetarian roughly one day per week. I don’t do this out of a need to feel morally superior, or any deep-seated religious belief that it will save the planet.   Rather, I eat vegetarian meals because they are a) tasty, and b) cheap as chips.  Now tell us all, honestly Andrew, have you become a vegetarian?  I find people who try to impose standards on others that they don’t adhere to themselves to be rather morally questionable! (Just like all those dignitaries and politicians in Copenhagen at the moment who flew there by private jet!)  At least commenter Bron shows that she stands by her convictions with her actions…  Not that I am agreeing that vegetarianism is in itself moral behaviour, but that it is morally wrong to dictate action to others whilst doing something different yourself.</p>
+<p>I totally agree that your proposal will affect livestock numbers.  What I am trying to find out from you is what you are proposing to do with the extras?  So far you&#8217;ve suggested:<br />
+&#8211; putting them in zoos<br />
+&#8211; teaching them to dance tango, or<br />
+&#8211; exporting them, so other countries can continue to use them to make greenhouse emissions, which won&#8217;t help your goal.</p>
+<p>None of these suggestions actually cut livestock numbers.  What I want to know is what you propose to do with those 120 million sheep which farmers will suddenly be unable to afford to keep? The only real answers which will cut emissions are to either let them loose to slowly die, which will destroy Australia’s native habitats even more by creating a huge feral sheep problem, or else a large scale cull.  Which option is more moral?!!!</p>
+<p>As for finding a ‘moral’ solution to climate change, are you seriously suggesting that enforced vegetarianism won’t affect the poor?  If the whole population of Australia suddenly becomes vegetarian, the price of basic sustenance foodstuffs like grains, legumes and vegetables would go up dramatically – just as the prices of grains have increased with the competition from biofuels.  There is nothing more certain to hurt the world’s poor than increasing the prices of basic foodstuffs!  Then of course, there’s the question of whether it will really reduce Australia’s “arseprint” at all (thanks to commenter Bob for that wonderful addition to the vocab of climate change!!) – until you do a full accounting of methane emissions, including the methane emissions of different human populations on different diets, I think it is unsound to claim that vegetarianism will reduce methane emissions!  (Has anyone actually captured and measured their own methane emissions?  There’s something I’d love to see – a tax on human methane!  While we’re getting all Big Brother, let’s have a compulsory farting tax!)</p>
+<p>If eating no meat makes you feel good about yourself, I am happy for you.  But at what point did you change from believing God’s dictates about how to live your life to believing Greenpeace’s?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68370#respond' data-commentid="68370" data-postid="387" data-belowelement="div-comment-68370" data-respondelement="respond" data-replyto="Reply to T.A." aria-label='Reply to T.A.'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-68381" class="comment even thread-even depth-1">
+			<article id="div-comment-68381" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c45a782597de87f48be2aca9946838df?s=56&#038;d=monsterid&#038;r=g' srcset='https://secure.gravatar.com/avatar/c45a782597de87f48be2aca9946838df?s=112&#038;d=monsterid&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' loading='lazy'/>						<b class="fn">Bob</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html%3Fp=387.html#comment-68381"><time datetime="2009-12-18T06:01:25+11:00">December 18, 2009 at 6:01 am</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I&#8217;ll happily pay a fart tax.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='https://www.aes.id.au/?p=387&#038;replytocom=68381#respond' data-commentid="68381" data-postid="387" data-belowelement="div-comment-68381" data-respondelement="respond" data-replyto="Reply to Bob" aria-label='Reply to Bob'>Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="index.html%3Fp=387.html#respond" style="display:none;">Cancel reply</a></small></h3><form action="https://www.aes.id.au/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p style="clear: both;" class="subscribe-to-comments">
+			<input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" />
+			<label for="subscribe">Notify me of followup comments via e-mail</label>
+			</p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required='required' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='387' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="46ad6f7620" /></p>		<span id="openid_comment">
+			<label>
+				<input type="checkbox" id="login_with_openid" name="login_with_openid" checked="checked" />
+				Authenticate this comment using <span class="openid_link">OpenID</span>.			</label>
+		</span>
+		<script type="text/javascript">jQuery(function(){ add_openid_to_comment_form('https://www.aes.id.au/index.php', 'a45adb30c7') })</script>
+		<input type="hidden" id="ak_js" name="ak_js" value="82"/><textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100" style="display: none !important;"></textarea></form>	</div><!-- #respond -->
+	<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed</a>.</p>
+</div><!-- .comments-area -->
+
+	<nav class="navigation post-navigation" role="navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="index.html%3Fp=384.html" rel="prev"><span class="meta-nav" aria-hidden="true">Previous</span> <span class="screen-reader-text">Previous post:</span> <span class="post-title">Objects, Transactions and Value</span></a></div><div class="nav-next"><a href="index.html%3Fp=391.html" rel="next"><span class="meta-nav" aria-hidden="true">Next</span> <span class="screen-reader-text">Next post:</span> <span class="post-title">The End of Protection</span></a></div></div>
+	</nav>
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
+
+
+	</div><!-- .site-content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+									<a href="https://wordpress.org/" class="imprint">
+				Proudly powered by WordPress			</a>
+		</div><!-- .site-info -->
+	</footer><!-- .site-footer -->
+
+</div><!-- .site -->
+
+<script src='https://www.aes.id.au/wp-content/themes/twentyfifteen/js/skip-link-focus-fix.js?ver=20141028' id='twentyfifteen-skip-link-focus-fix-js'></script>
+<script src='https://www.aes.id.au/wp-includes/js/comment-reply.min.js?ver=5.7.2' id='comment-reply-js'></script>
+<script id='twentyfifteen-script-js-extra'>
+var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+</script>
+<script src='https://www.aes.id.au/wp-content/themes/twentyfifteen/js/functions.js?ver=20171218' id='twentyfifteen-script-js'></script>
+<script src='https://www.aes.id.au/wp-includes/js/wp-embed.min.js?ver=5.7.2' id='wp-embed-js'></script>
+<script src='https://www.aes.id.au/wp-content/plugins/quick-adsense-reloaded/assets/js/ads.js?ver=2.0.27' id='quads-admin-ads-js'></script>
+<script async="async" src='https://www.aes.id.au/wp-content/plugins/akismet/_inc/form.js?ver=4.1.9' id='akismet-form-js'></script>
+
+</body>
+</html>

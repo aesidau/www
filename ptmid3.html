@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Andrew E. Scott - PTMID documentation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Documentation of the PTMID software version 0.3">
+  <meta name="keywords" content="midimod, software">
+  <meta name="author" content="Andrew Scott">
+  <meta name="copyright" content="Copyright 2003">
+</head>
+<body text="#000000" bgcolor="#fbfbfa" link="#000099" vlink="#990099" alink="#3333ff">
+	    <h1><i>PTMID Documentation</i></h1>
+<p><pre>NAME
+
+     ptmid - Creates Protracker MOD files or Multitracker MTM files 
+             from General MIDI files (ver 0.3)
+
+
+SYNOPSIS
+
+     ptmid [-cFile] [-dChannel] [-fFrac] [-q] [-s] infile[.mid]
+          [outfile[.mod]]
+
+
+DESCRIPTION
+
+     Ptmid will take either standard MIDI format 0 or format 1 files and
+     convert them into various Tracker-type files. MIDI files are
+     industry standard, but need some sort of sequencer to be played, as
+     there can be near infinite simultaneous notes (though about 20 is a
+     standard maximum). Protracker files are 4 channel (though 6, 8, and
+     just about any other variety is supported) files, but have a bank
+     of digitized instruments included, so reasonable quality sound is
+     produced given limited hardware. Multitracker files are similar,
+     and support upto 32 simultaneous notes. Both Protracker and
+     Multitracker files are referred to as Tracker files in this
+     document.
+
+     The differences between MIDI (extension .mid) and Tracker
+     (extension .mod or .mtm) formats are more than superficial, and a
+     fair bit of information is needed to be able perform the conversion
+     - most of this is held in the configuration file: ptmid.cfg
+
+     The format of ptmid.cfg is fairly simple: Any line beginning with a
+     hash (#) is ignored, other lines contain configuration info. The
+     first word on a line (called a tag) specifies what sort of
+     information (and sometimes only one word is needed), anything
+     following this word is used as supplementary information and
+     depends of the sort of option specified by the first word. 
+
+     One type of word needs a little explaining: pitch. A pitch, when
+     used in the configuration file, is a character string in the format
+     of: C2, C#2, D2, D#2, E2, F2, F#2, G2, G#2, A2, A#2, B2 (that was a
+     whole octave beginning with middle C). Other octaves can be used in
+     place of 2, eg. D#2, A-1, etc.
+
+     Here are a list of the tags permissible in the configuration file:
+
+          spath: The word following this tag is the name of the
+          directory that any subsequent samples will be found in. It
+          must end in a trailing slash, and be located in the file
+          before any line using the tags: def, xx, or dxx.
+
+          def, or xx (where xx is a number): These options supply
+          information on what samples (digitized instruments) should be
+          allocated to what MIDI instrument numbers. "def" is the
+          default non-percussion instrument, and must always be
+          specified. "xx" is a specific MIDI instrument. After the tag
+          are the filenames of the samples that can be used to represent
+          the instrument (if multiple filenames are used, then the one
+          sampled closest to the desired pitch for a note is chosen from
+          the list). If an allocation is not present for some particular
+          instrument, then the default instrument is used instead. A
+          shortcut is to put a quotes (") mark instead of a list of
+          filenames. This tells Ptmid that that instrument is identical
+          to the last one specified.
+
+          dxx (where xx is a number): This is similar to the above tag,
+          but applies to percussion samples. The first word following
+          the tag is the filename of the sample to associate with the
+          appropriate MIDI percussion instrument (only one filename can
+          be used). If there is another word following this, it is the
+          pitch to play the sample at when used in the Tracker file.
+          There is no default sample for non-specified percussion
+          instruments, as these are simply not played.
+
+          sample: The information following this tag tells Ptmid crucial
+          information about a sample. Samples can either be in .SMP
+          format (this is the default, and corresponds to headerless, 8
+          bit signed data), .WAV format, or .VOC format. The first word
+          following the tag is the filename of the sample which is to be
+          defined (and must correspond exactly to the filename of this
+          sample used elsewhere in the ptmid.cfg file). The next word is
+          the pitch of the sample when it's played (at 8287 Hz for .SMP
+          files, or the normal rate for .WAV or .VOC files). Optionally,
+          it can then be followed by a loop-start offset and a loop-
+          length (in that order), specified in words (1 word = 2 bytes).
+          After a sample is played it will stop if no loop information
+          is given, otherwise it will start looping at the loop-start
+          address and continue for the length of the loop-length
+          (looping continues indefinitely). A "sample" must be present
+          for EVERY filename given in one of the above options (def, xx,
+          or dxx).
+
+          drumch: The percussion channel is assumed to be 10, but some
+          MIDI devices assume it is elsewhere, and so Ptmid must know
+          what channel it will be to perform a correct conversion.
+          Following the tag name is a number which is the percussion
+          channel. Common values are 10 and 16.
+
+          fract: Ptmid quantizes (that is, groups notes to the closest
+          note) MIDI files duration conversion, and so must know what
+          the smallest type of note is. Following the tag name is a
+          number (possibly with a suffix of "t") which represents a type
+          of note - this is the quantize fraction. Valid fractions are
+          of the form: 4, 4t, 8, 8t, 16, 16t, etc. where 4 means a
+          quarter note (crotchet), 4t means a triplet, 8 means an
+          eighth-note (quaver), 8t means quaver-triplets, etc. It
+          usually can't hurt to give a smaller note (larger value),
+          though it uses up more memory, but the critical part is
+          knowing if a triplet note is needed. If not specified, the
+          fraction is assumed to be 16. This option can be overridden
+          with the similar option specified on the command line.
+
+          modfmt: This tag chooses the type of Tracker file to produce.
+          If the word following the tag name is "1", then Protracker
+          .mod files are produced (this is the default). If the word is
+          "2", then Multitracker .mtm files are produced.
+
+          maxchan: Following this tag is a number representing the
+          number of channels to have in the final Tracker file. It will
+          default to 4, and can have values upto 32. If creating a
+          Protracker file, putting values other than 4 may result in a
+          .mod file that cannot be played by your Tracker program,
+          although 6 and 8 are common too.
+
+          extend: If this tag is present, then an extended range of
+          notes is allowed during conversion. Usually there is a 3
+          octave range, but since MIDI allows a 9 octave range
+          converted files can sound wrong. With an extended range, 5
+          octaves are supported, but you need special trackers for this
+          (the tracker DMP is one example). The best solution for this
+          problem is to use multiple samples, each of which is digitized
+          an octave apart, and specify all of them for an instrument.
+
+          rgmode: There are 3 things Ptmid can do if despite using
+          "extend", a note is out-of-range. These things can be chosen
+          by specifying a number following this tag:
+               0 - This rounds a note to the nearest pitch (the default)
+               1 - Drop the note altogether
+               2 - Transpose the note by octaves until it's in range
+          Mode number 2 sounds the best, but it can generate melodies
+          that don't sound like the original, and is not the default.
+
+          nocopy: This tag will stop copyrighted MIDI files being
+          converted if it is present. Since MIDI files support a
+          copyright notice as part of their official format, I thought
+          that this would be a good option for the fascist-minded.
+
+     Options in the configuration file may be given in any order, and
+     are all optional except for "def" and "sample".
+     DMP is written by Otto Crons (no relation :).
+
+     How Ptmid works. Well.. It goes through the following steps:
+     1)   Read the configuration file and check each sample specified
+          (this is necessary so as to extract the sample-frequency of
+          samples in .WAV or .VOC format).
+     2)   Read in the entire MIDI file (except effects such as pitch
+          bend, mod wheel, etc.) into memory.
+     3)   Scan the tune and allocate samples to each note, convert the
+          volumes etc.
+     4)   Write the tune to disk as a Tracker file. If there are more
+          notes than channels at any particular time, it picks what it
+          guesses to be shorter notes rather than longer notes. The
+          reason behind this is that shorter notes allow more notes to
+          come later, freeing up channels sooner.. okay, so it's not a
+          very good reason, but it tends to sound better than simply
+          dropping notes.
+
+     I originally wanted to do "channel pruning" before the writing
+     stage occurred, but yes I'm slack and wanted to get a working copy
+     released. And now with ver 0.3, I have modified it extensively, and
+     still can't be bothered. Anyway, this means there is a bit of
+     inelegancy: samples may be allocated to notes, but those notes are
+     pruned later on and are never played, leaving redundant samples.
+     Other things I want to add are: compression (ie. identification of
+     common patterns and re-using them), MIDI effects, volume decay of
+     samples, and calculation of default volumes (at the mo they are
+     just set to 64).
+
+
+OPTIONS
+
+     cFile     "File" is the filename of the configuration file. If not
+               given will default to "ptmid.cfg". See above for format
+               of the configuration file.
+
+     dChannel  "Channel" is a number from 1 to 16. This is the channel
+               used for percussion instruments. See "drumch" option
+               above.
+
+     fFrac     "Frac" is a quantize fraction. It can take values of the
+               form: 4, 4t, 8, 8t, etc. See the "fract" option above,
+               which this option overrides.
+
+     q         Enables quiet-mode. Only error messages are sent (to
+               stderr).
+
+     s         Enables statistics-mode. Displays all kinds of funky
+               information to the screen while performing the
+               conversion. This will allow you to make good choices for
+               what to set different options to. I better give a short
+               description of what all of this information is..
+               "Ticks to quantize" is the amount of MIDI ticks that
+               every note will be rounded to (it defaults to a 16th
+               note). The amount of ticks representing a particular
+               time-value will change from MIDI file to MIDI file.
+               "Number of tracks" is the number of tracks in a (format
+               1) MIDI file. You will need this many files open plus one
+               to read the MIDI file.
+               "Maximum quantize error" is the biggest MIDI note length
+               rounding error. By relating this to "Ticks to quantize"
+               you get an idea of how much notes will be off-timing.
+               "Number of times it occurred" is obvious.
+               "Number of times quantize error > 2 occurred" helps you
+               get some perspective for the previous item, and how
+               accurate the conversion was overall.
+               "Number of pitch conversions out of range" is how often a
+               pitch was encountered that was beyond the playable range
+               for a sample (use the "extend" option in ptmid.cfg to
+               decrease these errors - if you haven't already).
+               "Number of dropped notes" shows how often a note was cut
+               while being written to the Tracker file. It should stay
+               pretty constant for any particular tune (even if you vary
+               the quantize fraction), but by adding more channels you
+               will decrease it.
+
+EXAMPLES
+
+     prompt> ptmid -s -f32t jazz3 jazztune
+
+     ptmid ver 0.3: Converting 'jazz3.mid' to 'jazztune.mtm'
+      Ticks to quantize: 16
+      Number of tracks: 11
+      Maximum quantize error: 8
+      Number of times it occurred: 145
+      Number of times quantize error > 2 occurred: 501
+     Analyzing..
+      Number of pitch conversions out of range: 0
+     Writing..
+      Number of dropped notes: 0
+     Writing 10 samples: ..........
+     Done.
+
+     prompt> ptmid test
+
+     ptmid ver 0.3: Converting 'test.mid' to 'test.mod'
+     Analyzing..
+     Writing..
+     Writing 2 samples: ..
+     Done.
+
+
+DIAGNOSTICS
+
+     The following errors terminate immediately and return an exit code
+     of 1 (disclaimer: error messages may not exactly match those
+     shown below).
+
+     Cannot find config file: xxxx
+
+          Either ptmid.cfg cannot be found (eg. not in current
+          directory) or the file specified with the option -c has been
+          incorrectly given.
+
+     Error in config file: line xx
+
+          Something is wrong with the config file on that line. Check
+          the above formats for options.
+
+     No default instrument defined in config file
+
+          Make sure there is a "def" option in the config file.
+
+     No sample definitions found in config file
+
+          Likewise, make sure there is a "sample" option.
+
+     Invalid quantize fraction - using default
+
+          You have incorrectly specified the fraction in the -f option.
+          Make sure it is of a similar form to: 4, 4t, 8, 8t, etc. Ptmid
+          is going ahead, but using the value 16.
+
+     Cannot access file: xxxx
+
+          The MIDI file you have specified cannot be opened for reading.
+
+     Not a legal MIDI file: xxxx
+
+          There is something wrong with the MIDI file you have
+          specified (like it isn't one), or there is a copyright notice
+          in it and the NOCOPY option has been enabled (see above).
+
+     Cannot create file: xxxx
+
+          The Protracker file cannot be opened for writing.
+
+     No more files can be opened
+
+          While reading the MIDI file, Ptmid has run out of file handles
+          (there should be at least 1 more than the number of tracks in
+          the file), so if you can increase them, please do (see manual
+          on how to do this). The official version of Ptmid supports
+          upto 34 track MIDI files (which opens 38 files under MSDOS)
+          and won't work on larger ones - this is a bug with Turbo C.
+
+     Cannot allocate any more memory
+
+          Nasty. Try recompiling the sources to use a bigger memory
+          model, install more memory (probably make no difference),
+          switch to a different operating system, or wait until other
+          users leave. I have managed to convert MIDI files upto 80k in
+          size under MSDOS.
+
+     The follow errors do not terminate immediately, though may cause
+     early termination, hence will return an exit code of 0.
+
+     Warning -- Pattern limit xx reached. Aborting!
+
+          Try using a smaller number of the quantize fraction. A Tracker
+          file will be created anyway, so at least you will have
+          something.
+
+HISTORY
+
+     0.1
+          Initial release. Spread far and wide, and a couple of people
+          were quite impressed.
+
+     0.2
+          Increase of maximum number of open files from 15 to 35
+          (involved patching Turbo C 2.0). Statistics mode added. Never
+          officially released.
+
+     0.3
+          Removed bug with MIDI Sysex events. Removed bug where odd (as
+          apart from even) length .SMP files weren't processed properly.
+          Percussion samples now played for 1/8th note (rather than the
+          length in the MIDI file). .VOC and .WAV files now supported.
+          Pitch value added to end of percussion allocations. Pitch
+          value for percussion samples after "sample" tag now makes
+          sense. Ditto (quote) abbreviation added to config file.
+          "spath", "rgmode", "modfmt" and "maxchan" tags added to config
+          file, while "ptchan", "patmax" and "formid" are removed. Tags
+          for .mod files corresponding to channel sizes are:
+               TDZ1, TDZ2, TDZ3, M!K!, 5CHN, 6CHN, 7CHN, 8CHN, 9CHN,
+               10CH, 11CH, 12CH, 13CH, 14CH, 15CH, 16CH, ... 32CH.
+          Oh.. and MTM files now supported (he waits for applause?).
+
+Andrew Scott
+INTERNET:andrewREMOVE@CAPSaes.id.au</pre></p>
+</body>
+</html>

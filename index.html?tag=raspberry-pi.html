@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="pingback" href="https://www.aes.id.au/xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="https://www.aes.id.au/wp-content/themes/twentyfifteen/js/html5.js?ver=3.7.0"></script>
+	<![endif]-->
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>raspberry pi &#8211; Andrew E. Scott</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='https://fonts.googleapis.com/' />
+<link rel='dns-prefetch' href='https://s.w.org/' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Andrew E. Scott &raquo; Feed" href="https://www.aes.id.au/?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="Andrew E. Scott &raquo; Comments Feed" href="https://www.aes.id.au/?feed=comments-rss2" />
+<link rel="alternate" type="application/rss+xml" title="Andrew E. Scott &raquo; raspberry pi Tag Feed" href="https://www.aes.id.au/?feed=rss2&#038;tag=raspberry-pi" />
+		<script>
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.aes.id.au\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.7.2"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='openid-css'  href='https://www.aes.id.au/wp-content/plugins/openid/f/openid.css?ver=519' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://www.aes.id.au/wp-includes/css/dist/block-library/style.min.css?ver=5.7.2' media='all' />
+<link rel='stylesheet' id='wp-block-library-theme-css'  href='https://www.aes.id.au/wp-includes/css/dist/block-library/theme.min.css?ver=5.7.2' media='all' />
+<link rel='stylesheet' id='quads-style-css-css'  href='https://www.aes.id.au/wp-content/plugins/quick-adsense-reloaded/includes/gutenberg/dist/blocks.style.build.css?ver=2.0.27' media='all' />
+<link rel='stylesheet' id='wpt-twitter-feed-css'  href='https://www.aes.id.au/wp-content/plugins/wp-to-twitter/css/twitter-feed.css?ver=5.7.2' media='all' />
+<link rel='stylesheet' id='parent-style-css'  href='https://www.aes.id.au/wp-content/themes/twentyfifteen/style.css?ver=5.7.2' media='all' />
+<link rel='stylesheet' id='twentyfifteen-fonts-css'  href='https://fonts.googleapis.com/css?family=Noto+Sans%3A400italic%2C700italic%2C400%2C700%7CNoto+Serif%3A400italic%2C700italic%2C400%2C700%7CInconsolata%3A400%2C700&#038;subset=latin%2Clatin-ext&#038;display=fallback' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://www.aes.id.au/wp-content/themes/twentyfifteen/genericons/genericons.css?ver=20201208' media='all' />
+<link rel='stylesheet' id='twentyfifteen-style-css'  href='https://www.aes.id.au/wp-content/themes/twentyfifteen-child/style.css?ver=20201208' media='all' />
+<style id='twentyfifteen-style-inline-css'>
+
+		/* Custom Sidebar Text Color */
+		.site-title a,
+		.site-description,
+		.secondary-toggle:before {
+			color: #000000;
+		}
+
+		.site-title a:hover,
+		.site-title a:focus {
+			color: #000000; /* Fallback for IE7 and IE8 */
+			color: rgba( 0, 0, 0, 0.7);
+		}
+
+		.secondary-toggle {
+			border-color: #000000; /* Fallback for IE7 and IE8 */
+			border-color: rgba( 0, 0, 0, 0.1);
+		}
+
+		.secondary-toggle:hover,
+		.secondary-toggle:focus {
+			border-color: #000000; /* Fallback for IE7 and IE8 */
+			border-color: rgba( 0, 0, 0, 0.3);
+		}
+
+		.site-title a {
+			outline-color: #000000; /* Fallback for IE7 and IE8 */
+			outline-color: rgba( 0, 0, 0, 0.3);
+		}
+
+		@media screen and (min-width: 59.6875em) {
+			.secondary a,
+			.dropdown-toggle:after,
+			.widget-title,
+			.widget blockquote cite,
+			.widget blockquote small {
+				color: #000000;
+			}
+
+			.widget button,
+			.widget input[type="button"],
+			.widget input[type="reset"],
+			.widget input[type="submit"],
+			.widget_calendar tbody a {
+				background-color: #000000;
+			}
+
+			.textwidget a {
+				border-color: #000000;
+			}
+
+			.secondary a:hover,
+			.secondary a:focus,
+			.main-navigation .menu-item-description,
+			.widget,
+			.widget blockquote,
+			.widget .wp-caption-text,
+			.widget .gallery-caption {
+				color: rgba( 0, 0, 0, 0.7);
+			}
+
+			.widget button:hover,
+			.widget button:focus,
+			.widget input[type="button"]:hover,
+			.widget input[type="button"]:focus,
+			.widget input[type="reset"]:hover,
+			.widget input[type="reset"]:focus,
+			.widget input[type="submit"]:hover,
+			.widget input[type="submit"]:focus,
+			.widget_calendar tbody a:hover,
+			.widget_calendar tbody a:focus {
+				background-color: rgba( 0, 0, 0, 0.7);
+			}
+
+			.widget blockquote {
+				border-color: rgba( 0, 0, 0, 0.7);
+			}
+
+			.main-navigation ul,
+			.main-navigation li,
+			.secondary-toggle,
+			.widget input,
+			.widget textarea,
+			.widget table,
+			.widget th,
+			.widget td,
+			.widget pre,
+			.widget li,
+			.widget_categories .children,
+			.widget_nav_menu .sub-menu,
+			.widget_pages .children,
+			.widget abbr[title] {
+				border-color: rgba( 0, 0, 0, 0.1);
+			}
+
+			.dropdown-toggle:hover,
+			.dropdown-toggle:focus,
+			.widget hr {
+				background-color: rgba( 0, 0, 0, 0.1);
+			}
+
+			.widget input:focus,
+			.widget textarea:focus {
+				border-color: rgba( 0, 0, 0, 0.3);
+			}
+
+			.sidebar a:focus,
+			.dropdown-toggle:focus {
+				outline-color: rgba( 0, 0, 0, 0.3);
+			}
+		}
+	
+</style>
+<link rel='stylesheet' id='twentyfifteen-block-style-css'  href='https://www.aes.id.au/wp-content/themes/twentyfifteen/css/blocks.css?ver=20190102' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfifteen-ie-css'  href='https://www.aes.id.au/wp-content/themes/twentyfifteen/css/ie.css?ver=20170916' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentyfifteen-ie7-css'  href='https://www.aes.id.au/wp-content/themes/twentyfifteen/css/ie7.css?ver=20141210' media='all' />
+<![endif]-->
+<style id='quads-styles-inline-css'>
+.quads-ad-label { font-size: 12px; text-align: center; color: #333;}
+</style>
+<script src='https://www.aes.id.au/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
+<script src='https://www.aes.id.au/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<link rel="https://api.w.org/" href="https://www.aes.id.au/index.php?rest_route=/" /><link rel="alternate" type="application/json" href="https://www.aes.id.au/index.php?rest_route=/wp/v2/tags/849" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.aes.id.au/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.7.2" />
+<link rel="stylesheet" type="text/css" media="screen" href="wp-content/plugins/hreview-support-for-editor/hreview.css" /><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script type='text/javascript'>document.cookie = 'quads_browser_width='+screen.width;</script><style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><!-- Vipers Video Quicktags v6.5.2 | http://www.viper007bond.com/wordpress-plugins/vipers-video-quicktags/ -->
+<style type="text/css">
+.vvqbox { display: block; max-width: 100%; visibility: visible !important; margin: 10px auto; } .vvqbox img { max-width: 100%; height: 100%; } .vvqbox object { max-width: 100%; } 
+</style>
+<script type="text/javascript">
+// <![CDATA[
+	var vvqflashvars = {};
+	var vvqparams = { wmode: "opaque", allowfullscreen: "true", allowscriptaccess: "always" };
+	var vvqattributes = {};
+	var vvqexpressinstall = "https://www.aes.id.au/wp-content/plugins/vipers-video-quicktags/resources/expressinstall.swf";
+// ]]>
+</script>
+		<style type="text/css" id="twentyfifteen-header-css">
+				.site-header {
+
+			/*
+			 * No shorthand so the Customizer can override individual properties.
+			 * @see https://core.trac.wordpress.org/ticket/31460
+			 */
+			background-image: url(https://www.aes.id.au/wp-content/uploads/2015/04/cropped-BlogHeader_resize1.jpg);
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			-webkit-background-size: cover;
+			-moz-background-size:    cover;
+			-o-background-size:      cover;
+			background-size:         cover;
+		}
+
+		@media screen and (min-width: 59.6875em) {
+			body:before {
+
+				/*
+				 * No shorthand so the Customizer can override individual properties.
+				 * @see https://core.trac.wordpress.org/ticket/31460
+				 */
+				background-image: url(https://www.aes.id.au/wp-content/uploads/2015/04/cropped-BlogHeader_resize1.jpg);
+				background-repeat: no-repeat;
+				background-position: 100% 50%;
+				-webkit-background-size: cover;
+				-moz-background-size:    cover;
+				-o-background-size:      cover;
+				background-size:         cover;
+				border-right: 0;
+			}
+
+			.site-header {
+				background: transparent;
+			}
+		}
+				</style>
+				<style id="wp-custom-css">
+			.img-border > figure {
+   border-style:solid;
+   border-width: 1px;
+   border-color: #000;
+}		</style>
+		</head>
+
+<body class="archive tag tag-raspberry-pi tag-849 wp-embed-responsive">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="index.html%3Ftag=raspberry-pi.html#content">Skip to content</a>
+
+	<div id="sidebar" class="sidebar">
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-branding">
+										<p class="site-title"><a href="https://www.aes.id.au/" rel="home">Andrew E. Scott</a></p>
+												<p class="site-description">It&#039;s all about me, really.</p>
+										<button class="secondary-toggle">Menu and widgets</button>
+			</div><!-- .site-branding -->
+		</header><!-- .site-header -->
+
+			<div id="secondary" class="secondary">
+
+		
+		
+					<div id="widget-area" class="widget-area" role="complementary">
+				<aside id="search-5" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://www.aes.id.au/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit screen-reader-text" value="Search" />
+			</form></aside><aside id="linkcat-3" class="widget widget_links"><h2 class="widget-title">Friends and Family</h2>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.99sauces.com" title="Favourite foodie site">99sauces</a>
+Favourite foodie site</li>
+<li><a href="http://kimbob-blog.blogspot.com/" rel="friend met" title="and Hyun Jeong">Bob</a>
+and Hyun Jeong</li>
+<li><a href="http://del.icio.us/andrewescott">Bookmarks</a></li>
+<li><a href="http://blog.clueful.com.au/" rel="friend met">Brendan</a></li>
+<li><a href="http://chartingtransport.wordpress.com/" rel="friend met" title="Transport charts">Chris</a>
+Transport charts</li>
+<li><a href="http://accidentlykellystreet.wordpress.com/" rel="friend met" target="_blank">Claire</a></li>
+<li><a href="http://guylipman.com/" rel="friend met" target="_blank">Guy</a></li>
+<li><a href="http://jennyagainstthegrain.wordpress.com/">Jenny</a></li>
+<li><a href="http://www.thescotts.info" rel="spouse" title="Combined site with Kate">Kate</a>
+Combined site with Kate</li>
+<li><a href="http://www.linkylouphotography.blogspot.com/">LinkyLou Photography</a></li>
+<li><a href="http://linkylou.blogspot.com/" rel="friend met" title="travel blog">Lynn</a>
+travel blog</li>
+<li><a href="http://www.linkyloulists.blogspot.com" rel="friend met" title="book reviews">Lynn</a>
+book reviews</li>
+<li><a href="http://melissenova.com/">Melis</a></li>
+<li><a href="http://nainaindrawati.blogspot.com/" rel="friend met" title="by Aditya">Naina</a>
+by Aditya</li>
+<li><a href="http://www.peterwills.com/blog/" rel="met co-worker">Peter</a></li>
+<li><a href="http://bickerbike.wordpress.com/" rel="friend met" target="_blank">Phil</a></li>
+<li><a href="http://flickr.com/photos/andrewescott" rel="me" title="My pictures">Photos</a>
+My pictures</li>
+<li><a href="http://melbournerecipes.wordpress.com/">Recipe Club</a></li>
+<li><a href="http://scream-stress.blogspot.com/" rel="friend met">Screamstress</a></li>
+<li><a href="http://www.tpa-online.com.au/" title="Tim &#038; Lynne&#8217;s company">TPA</a>
+Tim &#038; Lynne&#8217;s company</li>
+<li><a href="http://twitter.com/andrewescott" rel="me">Twitter</a></li>
+
+	</ul>
+</aside>
+<aside id="linkcat-645" class="widget widget_links"><h2 class="widget-title">Interesting</h2>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.avc.com/">A VC</a></li>
+<li><a href="http://babblingvc.typepad.com/">Babbling VC</a></li>
+<li><a href="http://www.bothsidesofthetable.com/">Both Sides of the Table</a></li>
+<li><a href="http://chinageeks.org/">ChinaGeeks</a></li>
+<li><a href="http://natashadragun.com/" rel="acquaintance met">Consummate Traveller</a></li>
+<li><a href="http://www.feld.com/wp/">Feld Thoughts</a></li>
+<li><a href="http://www.fluteprac.com" title="Flute practice app">FlutePrac</a></li>
+<li><a href="http://exchange.telstra.com.au/author/hugh-bradlow/" rel="met co-worker">Hugh Bradlow</a></li>
+<li><a href="http://jasonbstanding.com/">jasonbstanding</a></li>
+<li><a href="http://www.jwtintelligence.com/">JWT Intelligence</a></li>
+<li><a href="http://lsvp.wordpress.com/">Lightspeed Venture Partners</a></li>
+<li><a href="http://franksting.net.au/">Making Hay</a></li>
+<li><a href="http://worldaccordingtonathan.blogspot.com.au/" rel="met colleague">Nathan Bell</a></li>
+<li><a href="http://www.groundswell.fi/sim/" rel="met co-worker">Only Slightly Bent</a></li>
+<li><a href="http://colby.id.au/">PC Thoughts</a></li>
+<li><a href="http://www.point-a-point-b.com/" title="Timetable app">PointAPointB</a></li>
+<li><a href="http://prometheusink.com/">Prometheus Ink</a></li>
+<li><a href="http://blog.rpdata.com/">RP Data Research</a></li>
+<li><a href="http://mikehickinbotham.posterous.com/">terra incognita</a></li>
+<li><a href="http://www.unconventionaleconomist.com/">The Unconvential Economist</a></li>
+<li><a href="http://worldaccordingtonathan.blogspot.hk/" rel="met colleague" target="_blank">The World According to</a></li>
+<li><a href="http://blog.tonycamilli.com/" rel="met co-worker">Tony</a></li>
+<li><a href="http://www.visionmobile.com/blog/">VisionMobile</a></li>
+<li><a href="http://willdonovan.blogspot.com/" rel="acquaintance met">willdonovan</a></li>
+
+	</ul>
+</aside>
+<aside id="pages-2" class="widget widget_pages"><h2 class="widget-title">Pages</h2><nav role="navigation" aria-label="Pages">
+			<ul>
+				<li class="page_item page-item-2"><a href="index.html%3Fp=2.html">About</a></li>
+<li class="page_item page-item-10"><a href="index.html%3Fp=10.html">Best Man Speech</a></li>
+<li class="page_item page-item-14"><a href="index.html%3Fp=14.html">Breakfast Quotes</a></li>
+<li class="page_item page-item-504"><a href="index.html%3Fp=504.html">Comment Policy</a></li>
+<li class="page_item page-item-7"><a href="index.html%3Fp=7.html">Curriculum Vitae</a></li>
+<li class="page_item page-item-13"><a href="index.html%3Fp=13.html">Holiday Snaps</a></li>
+<li class="page_item page-item-28"><a href="index.html%3Fp=28.html">hReview WordPress Plugin</a></li>
+<li class="page_item page-item-3"><a href="index.html%3Fp=3.html">Investment Book Reviews</a></li>
+<li class="page_item page-item-5"><a href="index.html%3Fp=5.html">Investment Links</a></li>
+<li class="page_item page-item-4"><a href="index.html%3Fp=4.html">Positive Gearing Analysis</a></li>
+<li class="page_item page-item-8"><a href="index.html%3Fp=8.html">Publications</a></li>
+<li class="page_item page-item-24"><a href="index.html%3Fp=24.html">Reviewers&#8217; Manifesto</a></li>
+<li class="page_item page-item-9"><a href="index.html%3Fp=9.html">Software</a></li>
+<li class="page_item page-item-11"><a href="index.html%3Fp=11.html">Wi-Fi Performance</a></li>
+<li class="page_item page-item-12"><a href="index.html%3Fp=12.html">Wi-Fi Test Results</a></li>
+			</ul>
+
+			</nav></aside><aside id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widget-title">Recent Comments</h2><nav role="navigation" aria-label="Recent Comments"><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">Beck Peng</span> on <a href="index.html%3Fp=1169.html#comment-731330">Can we talk about the back button?</a></li><li class="recentcomments"><span class="comment-author-link"><a href='index.html' rel='external nofollow ugc' class='url'>andrew</a></span> on <a href="https://www.aes.id.au/?p=197#comment-670362">One Tin Slice recipe</a></li><li class="recentcomments"><span class="comment-author-link"><a href='https://mashable.com' rel='external nofollow ugc' class='url'>mashable.com</a></span> on <a href="https://www.aes.id.au/?p=782#comment-647021">Book Review &#8211; Steve Jobs</a></li><li class="recentcomments"><span class="comment-author-link"><a href='https://rnd.is.telkomuniversity.ac.id/' rel='external nofollow ugc' class='url'>NOVIAN</a></span> on <a href="index.html%3Fp=949.html#comment-645522">The Amazing Bitcoin</a></li><li class="recentcomments"><span class="comment-author-link"><a href='index.html' rel='external nofollow ugc' class='url'>andrew</a></span> on <a href="index.html%3Fp=1032.html#comment-617243">Wrist Computers</a></li></ul></nav></aside><aside id="tag_cloud-2" class="widget widget_tag_cloud"><h2 class="widget-title">Tags</h2><nav role="navigation" aria-label="Tags"><div class="tagcloud"><ul class='wp-tag-cloud' role='list'>
+	<li><a href="index.html%3Ftag=apple.html" class="tag-cloud-link tag-link-38 tag-link-position-1" style="font-size: 10.065573770492pt;" aria-label="apple (5 items)">apple</a></li>
+	<li><a href="index.html%3Ftag=australia.html" class="tag-cloud-link tag-link-47 tag-link-position-2" style="font-size: 18.098360655738pt;" aria-label="Australia (29 items)">Australia</a></li>
+	<li><a href="index.html%3Ftag=baby.html" class="tag-cloud-link tag-link-147 tag-link-position-3" style="font-size: 10.065573770492pt;" aria-label="baby (5 items)">baby</a></li>
+	<li><a href="index.html%3Ftag=book.html" class="tag-cloud-link tag-link-17 tag-link-position-4" style="font-size: 18.672131147541pt;" aria-label="book (33 items)">book</a></li>
+	<li><a href="index.html%3Ftag=children.html" class="tag-cloud-link tag-link-363 tag-link-position-5" style="font-size: 10.065573770492pt;" aria-label="children (5 items)">children</a></li>
+	<li><a href="index.html%3Ftag=chocolate.html" class="tag-cloud-link tag-link-75 tag-link-position-6" style="font-size: 11.44262295082pt;" aria-label="chocolate (7 items)">chocolate</a></li>
+	<li><a href="index.html%3Ftag=christmas.html" class="tag-cloud-link tag-link-97 tag-link-position-7" style="font-size: 9.1475409836066pt;" aria-label="christmas (4 items)">christmas</a></li>
+	<li><a href="index.html%3Ftag=culture.html" class="tag-cloud-link tag-link-150 tag-link-position-8" style="font-size: 9.1475409836066pt;" aria-label="culture (4 items)">culture</a></li>
+	<li><a href="index.html%3Ftag=dessert.html" class="tag-cloud-link tag-link-167 tag-link-position-9" style="font-size: 10.868852459016pt;" aria-label="dessert (6 items)">dessert</a></li>
+	<li><a href="index.html%3Ftag=donna-hay.html" class="tag-cloud-link tag-link-123 tag-link-position-10" style="font-size: 11.44262295082pt;" aria-label="donna hay (7 items)">donna hay</a></li>
+	<li><a href="index.html%3Ftag=economics.html" class="tag-cloud-link tag-link-461 tag-link-position-11" style="font-size: 9.1475409836066pt;" aria-label="economics (4 items)">economics</a></li>
+	<li><a href="index.html%3Ftag=facebook.html" class="tag-cloud-link tag-link-296 tag-link-position-12" style="font-size: 10.868852459016pt;" aria-label="facebook (6 items)">facebook</a></li>
+	<li><a href="index.html%3Ftag=finance.html" class="tag-cloud-link tag-link-115 tag-link-position-13" style="font-size: 10.868852459016pt;" aria-label="finance (6 items)">finance</a></li>
+	<li><a href="index.html%3Ftag=food.html" class="tag-cloud-link tag-link-26 tag-link-position-14" style="font-size: 9.1475409836066pt;" aria-label="food (4 items)">food</a></li>
+	<li><a href="index.html%3Ftag=future.html" class="tag-cloud-link tag-link-266 tag-link-position-15" style="font-size: 10.868852459016pt;" aria-label="future (6 items)">future</a></li>
+	<li><a href="index.html%3Ftag=harry-potter.html" class="tag-cloud-link tag-link-9 tag-link-position-16" style="font-size: 8pt;" aria-label="Harry-Potter (3 items)">Harry-Potter</a></li>
+	<li><a href="index.html%3Ftag=history.html" class="tag-cloud-link tag-link-418 tag-link-position-17" style="font-size: 11.44262295082pt;" aria-label="history (7 items)">history</a></li>
+	<li><a href="index.html%3Ftag=innovation.html" class="tag-cloud-link tag-link-350 tag-link-position-18" style="font-size: 10.065573770492pt;" aria-label="innovation (5 items)">innovation</a></li>
+	<li><a href="index.html%3Ftag=internet.html" class="tag-cloud-link tag-link-513 tag-link-position-19" style="font-size: 10.065573770492pt;" aria-label="internet (5 items)">internet</a></li>
+	<li><a href="index.html%3Ftag=investment.html" class="tag-cloud-link tag-link-109 tag-link-position-20" style="font-size: 9.1475409836066pt;" aria-label="investment (4 items)">investment</a></li>
+	<li><a href="index.html%3Ftag=ipad.html" class="tag-cloud-link tag-link-551 tag-link-position-21" style="font-size: 9.1475409836066pt;" aria-label="ipad (4 items)">ipad</a></li>
+	<li><a href="index.html%3Ftag=iphone.html" class="tag-cloud-link tag-link-23 tag-link-position-22" style="font-size: 9.1475409836066pt;" aria-label="iphone (4 items)">iphone</a></li>
+	<li><a href="index.html%3Ftag=melbourne.html" class="tag-cloud-link tag-link-10 tag-link-position-23" style="font-size: 14.885245901639pt;" aria-label="melbourne (15 items)">melbourne</a></li>
+	<li><a href="index.html%3Ftag=mobile.html" class="tag-cloud-link tag-link-37 tag-link-position-24" style="font-size: 10.065573770492pt;" aria-label="mobile (5 items)">mobile</a></li>
+	<li><a href="index.html%3Ftag=movie.html" class="tag-cloud-link tag-link-69 tag-link-position-25" style="font-size: 17.868852459016pt;" aria-label="movie (28 items)">movie</a></li>
+	<li><a href="index.html%3Ftag=music.html" class="tag-cloud-link tag-link-104 tag-link-position-26" style="font-size: 10.065573770492pt;" aria-label="music (5 items)">music</a></li>
+	<li><a href="index.html%3Ftag=online.html" class="tag-cloud-link tag-link-237 tag-link-position-27" style="font-size: 9.1475409836066pt;" aria-label="online (4 items)">online</a></li>
+	<li><a href="index.html%3Ftag=parenting.html" class="tag-cloud-link tag-link-245 tag-link-position-28" style="font-size: 10.065573770492pt;" aria-label="parenting (5 items)">parenting</a></li>
+	<li><a href="index.html%3Ftag=philosophy.html" class="tag-cloud-link tag-link-460 tag-link-position-29" style="font-size: 10.065573770492pt;" aria-label="philosophy (5 items)">philosophy</a></li>
+	<li><a href="index.html%3Ftag=property.html" class="tag-cloud-link tag-link-86 tag-link-position-30" style="font-size: 13.049180327869pt;" aria-label="property (10 items)">property</a></li>
+	<li><a href="index.html%3Ftag=raspberry-pi.html" class="tag-cloud-link tag-link-849 tag-link-position-31" style="font-size: 9.1475409836066pt;" aria-label="raspberry pi (4 items)">raspberry pi</a></li>
+	<li><a href="index.html%3Ftag=real-estate.html" class="tag-cloud-link tag-link-87 tag-link-position-32" style="font-size: 11.44262295082pt;" aria-label="real-estate (7 items)">real-estate</a></li>
+	<li><a href="index.html%3Ftag=recipe.html" class="tag-cloud-link tag-link-41 tag-link-position-33" style="font-size: 17.754098360656pt;" aria-label="recipe (27 items)">recipe</a></li>
+	<li><a href="index.html%3Ftag=review.html" class="tag-cloud-link tag-link-12 tag-link-position-34" style="font-size: 22pt;" aria-label="review (65 items)">review</a></li>
+	<li><a href="index.html%3Ftag=science.html" class="tag-cloud-link tag-link-312 tag-link-position-35" style="font-size: 10.868852459016pt;" aria-label="science (6 items)">science</a></li>
+	<li><a href="index.html%3Ftag=software.html" class="tag-cloud-link tag-link-368 tag-link-position-36" style="font-size: 10.868852459016pt;" aria-label="software (6 items)">software</a></li>
+	<li><a href="index.html%3Ftag=sony.html" class="tag-cloud-link tag-link-156 tag-link-position-37" style="font-size: 9.1475409836066pt;" aria-label="sony (4 items)">sony</a></li>
+	<li><a href="index.html%3Ftag=speech.html" class="tag-cloud-link tag-link-21 tag-link-position-38" style="font-size: 10.065573770492pt;" aria-label="speech (5 items)">speech</a></li>
+	<li><a href="index.html%3Ftag=statistics.html" class="tag-cloud-link tag-link-81 tag-link-position-39" style="font-size: 12.590163934426pt;" aria-label="statistics (9 items)">statistics</a></li>
+	<li><a href="index.html%3Ftag=superannuation.html" class="tag-cloud-link tag-link-84 tag-link-position-40" style="font-size: 9.1475409836066pt;" aria-label="superannuation (4 items)">superannuation</a></li>
+	<li><a href="index.html%3Ftag=technology.html" class="tag-cloud-link tag-link-225 tag-link-position-41" style="font-size: 15.229508196721pt;" aria-label="technology (16 items)">technology</a></li>
+	<li><a href="index.html%3Ftag=toastmasters.html" class="tag-cloud-link tag-link-52 tag-link-position-42" style="font-size: 10.065573770492pt;" aria-label="toastmasters (5 items)">toastmasters</a></li>
+	<li><a href="index.html%3Ftag=tv.html" class="tag-cloud-link tag-link-268 tag-link-position-43" style="font-size: 10.065573770492pt;" aria-label="tv (5 items)">tv</a></li>
+	<li><a href="index.html%3Ftag=web.html" class="tag-cloud-link tag-link-4 tag-link-position-44" style="font-size: 8pt;" aria-label="web (3 items)">web</a></li>
+	<li><a href="index.html%3Ftag=women.html" class="tag-cloud-link tag-link-78 tag-link-position-45" style="font-size: 9.1475409836066pt;" aria-label="women (4 items)">women</a></li>
+</ul>
+</div>
+</nav></aside><aside id="categories-1" class="widget widget_categories"><h2 class="widget-title">Categories</h2><nav role="navigation" aria-label="Categories">
+			<ul>
+					<li class="cat-item cat-item-1"><a href="index.html%3Fcat=1.html" title="Sometimes the words just flow and they can&#039;t be stopped.">Musings</a> (177)
+</li>
+	<li class="cat-item cat-item-440"><a href="https://www.aes.id.au/?cat=440" title="Favourite cookery complete with instructions">Recipes</a> (28)
+</li>
+	<li class="cat-item cat-item-2"><a href="index.html%3Fcat=2.html" title="Views on books, movies or anything else">Reviews</a> (61)
+</li>
+			</ul>
+
+			</nav></aside><aside id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2><nav role="navigation" aria-label="Archives">
+			<ul>
+					<li><a href='index.html%3Fm=202105.html'>May 2021</a></li>
+	<li><a href='index.html%3Fm=202103.html'>March 2021</a></li>
+	<li><a href='index.html%3Fm=202101.html'>January 2021</a></li>
+	<li><a href='index.html%3Fm=201905.html'>May 2019</a></li>
+	<li><a href='index.html%3Fm=201904.html'>April 2019</a></li>
+	<li><a href='index.html%3Fm=201902.html'>February 2019</a></li>
+	<li><a href='index.html%3Fm=201707.html'>July 2017</a></li>
+	<li><a href='index.html%3Fm=201702.html'>February 2017</a></li>
+	<li><a href='index.html%3Fm=201609.html'>September 2016</a></li>
+	<li><a href='index.html%3Fm=201603.html'>March 2016</a></li>
+	<li><a href='index.html%3Fm=201511.html'>November 2015</a></li>
+	<li><a href='index.html%3Fm=201510.html'>October 2015</a></li>
+	<li><a href='index.html%3Fm=201508.html'>August 2015</a></li>
+	<li><a href='index.html%3Fm=201507.html'>July 2015</a></li>
+	<li><a href='index.html%3Fm=201502.html'>February 2015</a></li>
+	<li><a href='index.html%3Fm=201501.html'>January 2015</a></li>
+	<li><a href='index.html%3Fm=201410.html'>October 2014</a></li>
+	<li><a href='index.html%3Fm=201406.html'>June 2014</a></li>
+	<li><a href='index.html%3Fm=201405.html'>May 2014</a></li>
+	<li><a href='index.html%3Fm=201404.html'>April 2014</a></li>
+	<li><a href='index.html%3Fm=201403.html'>March 2014</a></li>
+	<li><a href='index.html%3Fm=201401.html'>January 2014</a></li>
+	<li><a href='index.html%3Fm=201306.html'>June 2013</a></li>
+	<li><a href='index.html%3Fm=201305.html'>May 2013</a></li>
+	<li><a href='index.html%3Fm=201304.html'>April 2013</a></li>
+	<li><a href='index.html%3Fm=201303.html'>March 2013</a></li>
+	<li><a href='index.html%3Fm=201301.html'>January 2013</a></li>
+	<li><a href='index.html%3Fm=201212.html'>December 2012</a></li>
+	<li><a href='index.html%3Fm=201211.html'>November 2012</a></li>
+	<li><a href='index.html%3Fm=201210.html'>October 2012</a></li>
+	<li><a href='index.html%3Fm=201209.html'>September 2012</a></li>
+	<li><a href='index.html%3Fm=201208.html'>August 2012</a></li>
+	<li><a href='index.html%3Fm=201207.html'>July 2012</a></li>
+	<li><a href='index.html%3Fm=201205.html'>May 2012</a></li>
+	<li><a href='index.html%3Fm=201204.html'>April 2012</a></li>
+	<li><a href='index.html%3Fm=201203.html'>March 2012</a></li>
+	<li><a href='index.html%3Fm=201202.html'>February 2012</a></li>
+	<li><a href='index.html%3Fm=201201.html'>January 2012</a></li>
+	<li><a href='index.html%3Fm=201112.html'>December 2011</a></li>
+	<li><a href='index.html%3Fm=201111.html'>November 2011</a></li>
+	<li><a href='index.html%3Fm=201110.html'>October 2011</a></li>
+	<li><a href='index.html%3Fm=201109.html'>September 2011</a></li>
+	<li><a href='index.html%3Fm=201108.html'>August 2011</a></li>
+	<li><a href='index.html%3Fm=201107.html'>July 2011</a></li>
+	<li><a href='index.html%3Fm=201106.html'>June 2011</a></li>
+	<li><a href='index.html%3Fm=201105.html'>May 2011</a></li>
+	<li><a href='index.html%3Fm=201104.html'>April 2011</a></li>
+	<li><a href='index.html%3Fm=201103.html'>March 2011</a></li>
+	<li><a href='index.html%3Fm=201102.html'>February 2011</a></li>
+	<li><a href='index.html%3Fm=201101.html'>January 2011</a></li>
+	<li><a href='index.html%3Fm=201012.html'>December 2010</a></li>
+	<li><a href='index.html%3Fm=201011.html'>November 2010</a></li>
+	<li><a href='index.html%3Fm=201010.html'>October 2010</a></li>
+	<li><a href='index.html%3Fm=201009.html'>September 2010</a></li>
+	<li><a href='index.html%3Fm=201008.html'>August 2010</a></li>
+	<li><a href='index.html%3Fm=201007.html'>July 2010</a></li>
+	<li><a href='index.html%3Fm=201006.html'>June 2010</a></li>
+	<li><a href='index.html%3Fm=201005.html'>May 2010</a></li>
+	<li><a href='index.html%3Fm=201004.html'>April 2010</a></li>
+	<li><a href='index.html%3Fm=201003.html'>March 2010</a></li>
+	<li><a href='index.html%3Fm=201002.html'>February 2010</a></li>
+	<li><a href='index.html%3Fm=201001.html'>January 2010</a></li>
+	<li><a href='index.html%3Fm=200912.html'>December 2009</a></li>
+	<li><a href='index.html%3Fm=200911.html'>November 2009</a></li>
+	<li><a href='index.html%3Fm=200910.html'>October 2009</a></li>
+	<li><a href='index.html%3Fm=200909.html'>September 2009</a></li>
+	<li><a href='index.html%3Fm=200908.html'>August 2009</a></li>
+	<li><a href='index.html%3Fm=200907.html'>July 2009</a></li>
+	<li><a href='index.html%3Fm=200906.html'>June 2009</a></li>
+	<li><a href='index.html%3Fm=200905.html'>May 2009</a></li>
+	<li><a href='index.html%3Fm=200904.html'>April 2009</a></li>
+	<li><a href='index.html%3Fm=200903.html'>March 2009</a></li>
+	<li><a href='index.html%3Fm=200902.html'>February 2009</a></li>
+	<li><a href='index.html%3Fm=200901.html'>January 2009</a></li>
+	<li><a href='index.html%3Fm=200812.html'>December 2008</a></li>
+	<li><a href='index.html%3Fm=200811.html'>November 2008</a></li>
+	<li><a href='index.html%3Fm=200810.html'>October 2008</a></li>
+	<li><a href='index.html%3Fm=200809.html'>September 2008</a></li>
+	<li><a href='index.html%3Fm=200808.html'>August 2008</a></li>
+	<li><a href='index.html%3Fm=200807.html'>July 2008</a></li>
+	<li><a href='index.html%3Fm=200806.html'>June 2008</a></li>
+	<li><a href='index.html%3Fm=200805.html'>May 2008</a></li>
+	<li><a href='index.html%3Fm=200804.html'>April 2008</a></li>
+	<li><a href='index.html%3Fm=200803.html'>March 2008</a></li>
+	<li><a href='index.html%3Fm=200802.html'>February 2008</a></li>
+	<li><a href='index.html%3Fm=200801.html'>January 2008</a></li>
+	<li><a href='index.html%3Fm=200712.html'>December 2007</a></li>
+	<li><a href='index.html%3Fm=200711.html'>November 2007</a></li>
+	<li><a href='index.html%3Fm=200710.html'>October 2007</a></li>
+	<li><a href='index.html%3Fm=200709.html'>September 2007</a></li>
+	<li><a href='index.html%3Fm=200708.html'>August 2007</a></li>
+	<li><a href='index.html%3Fm=200707.html'>July 2007</a></li>
+	<li><a href='index.html%3Fm=200706.html'>June 2007</a></li>
+	<li><a href='index.html%3Fm=200705.html'>May 2007</a></li>
+	<li><a href='index.html%3Fm=200704.html'>April 2007</a></li>
+	<li><a href='index.html%3Fm=200703.html'>March 2007</a></li>
+	<li><a href='index.html%3Fm=200702.html'>February 2007</a></li>
+	<li><a href='index.html%3Fm=200701.html'>January 2007</a></li>
+	<li><a href='index.html%3Fm=200612.html'>December 2006</a></li>
+	<li><a href='index.html%3Fm=200611.html'>November 2006</a></li>
+	<li><a href='index.html%3Fm=200610.html'>October 2006</a></li>
+	<li><a href='index.html%3Fm=200609.html'>September 2006</a></li>
+	<li><a href='index.html%3Fm=200608.html'>August 2006</a></li>
+	<li><a href='index.html%3Fm=200607.html'>July 2006</a></li>
+			</ul>
+
+			</nav></aside><aside id="text-3" class="widget widget_text"><h2 class="widget-title">Contact Details</h2>			<div class="textwidget"><ul class="reviewer vcard">
+  <div class="fn n"><span class="given-name">Andrew</span>
+ <span class="additional-name">E.</span>
+ <span class="family-name">Scott</span></div>
+  <div class="org">Telstra</div>
+  <div>Work: <span class="tel">+61-417-137-515</span></div>
+  <div>Timezone: <span class="tz">+10:00</div>
+</ul></div>
+		</aside><aside id="text-4" class="widget widget_text"><h2 class="widget-title">Disclaimer</h2>			<div class="textwidget">Opinions here are mine and not my employer's.</div>
+		</aside><aside id="meta-4" class="widget widget_meta"><h2 class="widget-title">Meta</h2><ul>
+<li><a href="wp-login.php.html">Log in</a></li>
+<li><a href="https://xaes.securecnc.net/CNC/index.cgi">Host Admin</a></li>
+</ul>
+</aside>			</div><!-- .widget-area -->
+		
+	</div><!-- .secondary -->
+
+	</div><!-- .sidebar -->
+
+	<div id="content" class="site-content">
+
+	<section id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			<header class="page-header">
+				<h1 class="page-title">Tag: <span>raspberry pi</span></h1>			</header><!-- .page-header -->
+
+			
+<article id="post-1018" class="post-1018 post type-post status-publish format-standard hentry category-musings tag-node-js tag-raspberry-pi tag-windows-10 tag-windows-10-iot-core">
+	
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://www.aes.id.au/?p=1018" rel="bookmark">Windows 10 on Raspberry Pi 2</a></h2>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><a href="https://www.flickr.com/photos/andrewescott/20457372705/"><img loading="lazy" class=" alignright" src="https://farm1.staticflickr.com/497/20457372705_63ca7db2a1_n.jpg" alt="Windows 10 IoT Core on Raspberry Pi 2" width="320" height="240" /></a><a href="http://www.aes.id.au/?p=998">I was one of those who ordered the Raspberry Pi 2</a>, when it was announced back in February 2015, off the back of the claims that it would run Windows 10. Not the full desktop version of Windows 10 of course, but a version for simpler devices. Still, it impressed me that here was a $36 computer that could run the latest version of Microsoft Windows.</p>
+<p>Unfortunately, while the Pi 2 became available back then, the required version of Windows was not. It’s only been in the last month that Microsoft launched <a href="https://dev.windows.com/en-us/iot">Windows 10 IoT Core</a>, so I’ve finally had a chance to try it out.</p>
+<p>For those that also are interested in this option, I thought I’d note down my experiences on installing it, connecting to it and running software on it.</p>
+<h2>Installing Windows 10 IoT Core</h2>
+<p>There are some <a href="http://ms-iot.github.io/content/en-US/win10/SetupRPI.htm">official instructions provided by Microsoft</a> on how to do this. However, they require that you are running Windows 10 on a PC, and none of my computers have Windows 10 yet. I also didn’t want to use up the hard disk space that would be needed if I had set up a Windows 10 virtual machine. I was more interested in unofficial options.</p>
+<h3>What didn’t work:</h3>
+<ul>
+<li>Using the <a href="https://github.com/t0x0/random/wiki/ffu2img">Python ffu2img tool </a>to convert the official Windows 10 IoT SD card image to something that could be loaded onto the SD card with something like <a href="http://sourceforge.net/projects/win32diskimager/">Win32 Disk Imager</a>. The ffu2img developer admits that they are pretty sure that there&#8217;s something wrong.</li>
+<li>Downloading the official <a href="https://www.microsoft.com/en-au/software-download/windows10ISO">Windows 10 Home edition ISO</a> and using the version of DISM in the sources directory there to load the SD card image.</li>
+</ul>
+<h3>What did work:</h3>
+<ul>
+<li>I got the official <a href="http://go.microsoft.com/fwlink/?LinkId=619755">Windows 10 IoT Core for Raspberry Pi 2 ISO</a> from Microsoft, opened it, ran the installer, and it put the flash.ffu file in <code>C:\Program Files (x86)\Microsoft IoT\FFU\RaspberryPi2\</code></li>
+<li>Next, I got the <a href="https://msdn.microsoft.com/en-us/windows/hardware/dn913721.aspx?f=255&amp;MSPPError=-2147217396">Windows ADK for Windows 10</a> installer from Microsoft, and it loaded a suitable version of DISM into <code>C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\x86\DISM\</code></li>
+<li>Then I formatted my SD card using <a href="https://www.sdcard.org/downloads/formatter_4/">SD Formatter</a></li>
+<li>I copied the flash.ffu file into the DISM directory and used it (following the <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=105&amp;t=109160">instructions on the Raspberry Pi forums</a>) in an Administrator Command Prompt to copy it onto my SD card</li>
+<li>I safely ejected the SD card, and popped into the Pi and it booted up fine.</li>
+</ul>
+<h2>Connecting to Windows 10 IoT Core</h2>
+<p>Once the Pi got going, I needed to tell it what language to use. I had plugged a decent quality USB keyboard in, but it was extremely finnicky: key presses were seemingly ignored. In the end, I plugged a USB mouse in and it was much more responsive to mouse clicks.</p>
+<p>Windows 10 IoT is really designed to run a single GUI application. It boots into one that shows the hostname and IP address for the Pi, as well as displaying some simple tutorial instructions. It’s designed to connect to Visual Studio 2015, and allow a developer to push their application straight to the Pi. However, I don’t work with my Pi that way &#8211; I connect into it and configure/run it via a remote shell.</p>
+<p>It’s possible to <a href="http://ms-iot.github.io/content/en-US/win10/samples/SSH.htm">SSH straight into the Pi</a> (as user Administrator, initially, until you set up some other users). You basically get a DOS prompt. Cool! What was less straightforward was getting files onto it.</p>
+<h3>What didn’t work:</h3>
+<ul>
+<li>SCP &#8211; I kept getting an &#8220;exec request failed on channel 0” error</li>
+<li>Trying to get the Pi to <a href="http://www.powershellatoms.com/basic/download-file-website-powershell/">download files using an Invoke-WebRequest</a> via PowerShell running on the Pi. The version of PowerShell seems to be missing some modules.</li>
+</ul>
+<h3>What did work:</h3>
+<ul>
+<li>The Pi appears on the LAN as a Windows network share. You can use a Windows PC and put in <code>\\192.168.1.10\c$</code> (or whatever your IP address is) and then login as <code>minwinpc\Administrator</code> with your password. Voila!</li>
+<li>Similarly, on a mac, you can access it via the Finder using Go &gt; Connect to Server <code>smb://192.168.1.14/c$</code> (or whatever your IP address is). The Pi will also then appear under <code>/Volumes/c$/</code></li>
+<li>Once the share has been opened, it’s straightforward to copy files to and from the Pi.</li>
+</ul>
+<h2>Running Software on Windows IoT Core</h2>
+<p>As mentioned above, the standard way to get software running on Windows IoT is for Visual Studio to load it onto the Pi over the network. However, I’m more interested in running standard server apps that don&#8217;t rely on the Microsoft ecosystem, so I focussed my efforts on getting Node.js to run on the Pi.</p>
+<p>Microsoft is doing some very cool stuff around <a href="https://blogs.windows.com/buildingapps/2015/05/12/bringing-node-js-to-windows-10-iot-core/">supporting platforms like Node.js</a> and even <a href="https://github.com/ms-iot/python">Python on Windows IoT</a>. It&#8217;s still very much in its early days, but shows promise.</p>
+<h3>Here&#8217;s what I did:</h3>
+<ul>
+<li>I downloaded and installed the <a href="https://github.com/ms-iot/ntvsiot/releases">Node.js Tools for Windows IoT (v1.1) from GitHub</a>. These were installed into <code>C:\Program Files (x86)\Node.js (chakra)\</code></li>
+<li>I copied the whole <code>Node.js (chakra)\</code> installation directory over to the Pi into <code>C:\Node.js\</code></li>
+<li>I downloaded the <a href="https://github.com/ms-iot/ntvsiot/releases">ARM version of node.exe from the same GitHub page</a> as above, which I copied over the top of the previous (Intel version of) node.exe in C:\Node.js\</li>
+<li>Set up the <code>APPDATA</code> environment variable to be somewhere useful (it wasn&#8217;t set for me): <code>set APPDATA=C:\Users\Public</code></li>
+<li>Set up other useful environment variables for Node by running: <code>C:\Node.js\nodevars.bat</code></li>
+<li>Now commands like &#8220;<code>npm install -s express</code>&#8221; and &#8220;<code>node test.js</code>&#8221; work.</li>
+</ul>
+<p>While I could run simple Hello World style programs with Node that wrote text out to the screen, I was unable to get working a slightly more advanced <a href="http://ms-iot.github.io/content/en-US/win10/samples/NodejsWU.htm">Node program that ran a basic webserver</a>.</p>
+<h2>Conclusions</h2>
+<p>It was fun to see Windows 10 boot up on the Raspberry Pi. However, I was a little disappointed how limited it was, given how powerful a Pi is with the default Linux-based OS.</p>
+<p>Microsoft’s approach to developing for the Raspberry Pi brings something new to the space, and may make the platform more accessible to developers who are already adept with Microsoft tools. Still, it would’ve been nice to see the basic image come with something immediately useful, if only the new Edge web browser (this would’ve make super-cheap Internet Explorer based kiosks really simple to create).</p>
+<p>There&#8217;s the old saying that you should always wait for the third version of a Microsoft OS. I don&#8217;t know if we&#8217;ll need to wait that long for a compelling Microsoft OS on Raspberry Pi, but I am excited to see what Microsoft does with this in future.</p>
+
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://www.aes.id.au/?p=1018" rel="bookmark"><time class="entry-date published" datetime="2015-08-11T08:09:21+10:00">August 11, 2015</time><time class="updated" datetime="2015-08-11T08:44:11+10:00">August 11, 2015</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="index.html%3Fcat=1.html" rel="category">Musings</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="index.html%3Ftag=node-js.html" rel="tag">node.js</a>, <a href="index.html%3Ftag=raspberry-pi.html" rel="tag">raspberry pi</a>, <a href="index.html%3Ftag=windows-10.html" rel="tag">windows 10</a>, <a href="index.html%3Ftag=windows-10-iot-core.html" rel="tag">windows 10 iot core</a></span><span class="comments-link"><a href="https://www.aes.id.au/?p=1018#respond">Leave a comment<span class="screen-reader-text"> on Windows 10 on Raspberry Pi 2</span></a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-1018 -->
+
+<article id="post-998" class="post-998 post type-post status-publish format-standard hentry category-musings tag-cec tag-hdmi tag-kodi tag-lg tag-raspberry-pi tag-xbmc">
+	
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="index.html%3Fp=998.html" rel="bookmark">XBMC on Raspberry Pi 2</a></h2>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><a href="https://www.flickr.com/photos/mel-and-jym/7422475104/"><img loading="lazy" class="alignright" src="https://farm9.staticflickr.com/8145/7422475104_8c5e794abe_n.jpg" alt="Raspberry Pi running OpenELEC with XBMC" width="320" height="240" /></a>I got a <a href="http://www.raspberrypi.org/raspberry-pi-2-on-sale/">Raspberry Pi 2</a> on the first day they were available in Australia. It has twice the memory and is up to six times faster than the old Raspberry Pi, and at some point in the future it <a href="http://dev.windows.com/en-us/featured/raspberrypi2support">will be able to run Windows 10</a>. But in the mean-time, I thought it would be cool to see what sort of media centre appliance I could get going on a $36 computer. This post is for posterity, but also in case it helps others who are trying to get this working.</p>
+<p>The default media centre platform is called XBMC, but the first thing I learnt was that it was now called Kodi. According to the Kodi Wiki, there are just <a href="http://kodi.wiki/view/Raspberry_Pi_2">two versions that work on the Pi 2</a>. The first one I tried was <a href="https://osmc.tv/">OSMC</a>, but it is still in Alpha release and not so stable. The other is <a href="http://openelec.tv/">OpenELEC</a> and v5.0.3 supports the Pi 2.</p>
+<p>Following the <a href="http://wiki.openelec.tv/index.php/HOW-TO:Installing_OpenELEC/Creating_The_Install_Key#tab=DiskImage">installation instructions</a> didn&#8217;t work for me, perhaps running Windows 7 64-bit caused problems for the Win32 Disk Imager program. So, I tried using <a href="http://winflashtool.sysprogs.com/">WinFLASHTool</a> instead, and it worked for me perfectly.</p>
+<p>This got me a media centre on the Pi, but what I really wanted was to be able to control it from the TV remote control &#8211; this requires <a href="http://en.wikipedia.org/wiki/HDMI#CEC">HDMI CEC</a> to work. I have an LG 42LN5710 television, and LG calls their implementation of CEC &#8220;Simplink&#8221;. There are two ways to turn it on: press the Simplink button on the remote, or press the Input source button on the remote and then the green button on the remote. Neither worked for me.</p>
+<p>After a lot of stuffing around, I learned two things that got me on the right track.</p>
+<p>Firstly, not every HDMI cable supports CEC. I had a cheap HDMI 1.3 cable that was fine for delivering A/V from the Pi to the TV, but I needed to replace it with a new cable. CEC is implemented in a single wire in the cable, and is apparently mandatory, but not mandatory enough.</p>
+<p>Secondly, any HDMI device can communicate with any other HDMI device connected on any HDMI cable using CEC. I had three HDMI devices (including the Pi) plugged into my TV. One of them was misbehaving, and stopping CEC on the Pi from working. I had to unplug the rogue device and reboot the Pi.</p>
+<p>After this, I was able to turn on Simplink and the TV identified the Pi as a Simplink device. Excellent!</p>
+
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="index.html%3Fp=998.html" rel="bookmark"><time class="entry-date published updated" datetime="2015-02-16T21:00:19+11:00">February 16, 2015</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="index.html%3Fcat=1.html" rel="category">Musings</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="index.html%3Ftag=cec.html" rel="tag">cec</a>, <a href="index.html%3Ftag=hdmi.html" rel="tag">hdmi</a>, <a href="index.html%3Ftag=kodi.html" rel="tag">kodi</a>, <a href="index.html%3Ftag=lg.html" rel="tag">lg</a>, <a href="index.html%3Ftag=raspberry-pi.html" rel="tag">raspberry pi</a>, <a href="index.html%3Ftag=xbmc.html" rel="tag">xbmc</a></span><span class="comments-link"><a href="index.html%3Fp=998.html#comments">2 Comments<span class="screen-reader-text"> on XBMC on Raspberry Pi 2</span></a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-998 -->
+
+<article id="post-926" class="post-926 post type-post status-publish format-standard hentry category-musings tag-code tag-facebook tag-gmail tag-python tag-raspberry-pi tag-software">
+	
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="https://www.aes.id.au/?p=926" rel="bookmark">Pi, Python and I (part 2)</a></h2>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><a href="http://www.flickr.com/photos/andrewescott/8705806229/"><img loading="lazy" src="http://farm9.staticflickr.com/8129/8705806229_4582b3cf48_m.jpg" width="240" height="180" alt="Raspberry Pi" class="alignright" /></a>In my <a href="http://www.aes.id.au/?p=916">previous post</a>, I talked about how I&#8217;m using a Raspberry Pi to run a Facebook backup service and provided the Python code needed to get (and maintain) a valid Facebook token to do this. This post will be discussing the actual Facebook backup service and the Python code to do that. It will be my second Python program ever (the first was in the previous post), so there will likely be better ways to do what I&#8217;ve done, although you&#8217;ll see it&#8217;s still a pretty simple exercise. (I&#8217;m happy to hear about possible improvements.)</p>
+<p>The first thing I need to do is pull in all the Python modules that will be useful. The extra packages should&#8217;ve been installed from before. Also, because the Facebook messages will be backed-up to Gmail using its IMAP interface, the Google credentials are specified here, too. Given that those credentials are likely to be something you want to keep secret at all costs, all the more reason to run this on a home server rather than on a publicly hosted server.</p>
+<pre>from facepy import GraphAPI
+import urlparse
+import dateutil.parser
+from crontab import CronTab
+import imaplib
+import time
+
+# How many status updates to go back in time (first time, and between runs)
+MAX_ITEMS = 5000
+# How many items to ask for in each request
+REQUEST_ITEMS = 25
+# Default recipient
+DEFAULT_TO = "my_gmail_acct@gmail.com" # Replace with yours
+# Suffix to turn Facebook message IDs into email IDs
+ID_SUFFIX = "@exportfbfeed.facebook.com"
+# Gmail account
+GMAIL_USER = "my_gmail_acct@gmail.com" # Replace with yours
+# and its secret password
+GMAIL_PASS = "S3CR3TC0D3" # Replace with yours
+# Gmail folder to use (will be created if necessary)
+GMAIL_FOLDER = "Facebook"</pre>
+<p>Before we get into the guts of the backup service, I first need to create a few basic functions to simplify the code that comes later. Initially, there&#8217;s a function that is used to make it easy to pull a value from the results of a call to the Facebook Graph API:</p>
+<pre>def lookupkey(the_list, the_key, the_default):
+  try:
+    return the_list[the_key]
+  except KeyError:
+    return the_default</pre>
+<p>Next a function to retrieve the Facebook username for a given Facebook user. Given that we want to back-up messages into Gmail, we have to make them look like email. So, each message will have to appear to come from a unique email address belonging to the relevant Facebook user. Since Facebook generally provides all their users with email addresses at the facebook.com domain based on their usernames, I&#8217;ve used these. However, to make it a bit more efficient, I cache the usernames in a list so that I don&#8217;t have to query Facebook again when the same person appears in the feed multiple times.</p>
+<pre>def getusername(id, friendlist):
+  uname = lookupkey(friendlist, id, '')
+  if '' == uname:
+    uname = lookupkey(graph.get(str(id)), 'username', id)
+    friendlist[id] = uname # Add the entry to the dictionary for next time
+  return uname</pre>
+<p>The email standards expect times and dates to appear in particular formats, so now a function to achieve this based on whatever date format Facebook gives us:</p>
+<pre>def getnormaldate(funnydate):
+  dt = dateutil.parser.parse(funnydate)
+  tz = long(dt.utcoffset().total_seconds()) / 60
+  tzHH = str(tz / 60).zfill(2)
+  if 0 <= tz:
+    tzHH = '+' + tzHH
+  tzMM = str(tz % 60).zfill(2)
+  return dt.strftime("%a, %d %b %Y %I:%M:%S") + ' ' + tzHH + tzMM</pre>
+<p>Next, a function to find the relevant bit of a URL to help travel back and forth in the Facebook feed. Given that the feed is returned to use from the Graph API in small chunks, we need to know how to query the next or previous chunk in order to get it all. Facebook uses a URL format to give us this information, but I want to unpack it to allow for more targeted navigation.</p>
+<pre>def getpagingpart(urlstring, part):
+  url = urlparse.urlsplit(urlstring)
+  qs = urlparse.parse_qs(url.query)
+  return qs[part][0]</pre>
+<p>Now a function to construct the headers and body of the email from a range of information gleaned from processing the Facebook Graph API results.</p>
+<pre>def message2str(fromname, fromaddr, toname, toaddr, date, subj1, subj2, msgid, msg1, msg2, inreplyto=''):
+  if '' == inreplyto:
+    header = ''
+  else:
+    header = 'In-Reply-To: <' + inreplyto + '>\n'
+  utcdate = dateutil.parser.parse(date).astimezone(dateutil.tz.tzutc()).strftime("%a %b %d %I:%M:%S %Y")
+  return "From nobody {}\nFrom: {} <{}>\nTo: {} <{}>\nDate: {}\nSubject: {} - {}\nMessage-ID: <{}>\n{}Content-Type: text/html\n\n<p>{}{}</p>".format(utcdate, fromname, fromaddr, toname, toaddr, date, subj1, subj2, msgid, header, msg1, msg2)</pre>
+<p>Okay, now we've gotten all that out of the way, here's the main function to process a message obtained from the Graph API and place it in an IMAP message folder. The Facebook message is in the form of a dictionary, so we can look up the relevant parts by using keys. In particular, any comments to a message will appear in the same format, so we recurse over those as well using the same function.</p>
+<p>Note that in a couple of places I call <tt>encode("ascii", "ignore")</tt>. This is an ugly hack that strips out all of the unicode goodness that was in the original Facebook message (which allows foreign language characters and symbols), dropping anything exotic to leave plain ASCII characters behind. However, for some reason, the Python installation on my Raspberry Pi would crash the program whenever it came across unusual characters. To ensure that everything works smoothly, I ensure that these aren't present when the text is processed later.</p>
+<pre>def printdata(data, friendlist, replytoid='', replytosub='', max=MAX_ITEMS, conn=None):
+  c = 0
+  for d in data:
+    id = lookupkey(d, 'id', '') # get the id of the post
+    msgid = id + ID_SUFFIX
+    try: # get the name (and id) of the friend who posted it
+      f = d['from']
+      n = f['name'].encode("ascii", "ignore")
+      fid = f['id']
+      uname = getusername(fid, friendlist) + "@facebook.com"
+    except KeyError:
+      n = ''
+      fid = ''
+      uname = ''
+    try: # get the recipient (eg. if a wall post)
+      dest = d['to']
+      destn = dest['name']
+      destid = dest['id']
+      destname = getusername(destid, friendlist) + "@facebook.com"
+    except KeyError:
+      destn = ''
+      destid = ''
+      destname = DEFAULT_TO
+    t = lookupkey(d, 'type', '') # get the type of this post
+    try:
+      st = d['status_type']
+      t += " " + st
+    except KeyError:
+      pass
+    try: # get the message they posted
+      msg = d['message'].encode("ascii", "ignore")
+    except KeyError:
+      msg = ''
+    try: # there may also be a description
+      desc = d['description'].encode("ascii", "ignore")
+      if '' == msg:
+        msg = desc
+      else:
+        msg = msg + "<br />\n" + desc
+    except KeyError:
+      pass
+    try: # get an associated image
+      img = d['picture']
+      msg = msg + '<br />\n<img src="https://www.aes.id.au/'&#32;+&#32;img&#32;+&#32;'" />'
+    except KeyError:
+      img = ''
+    try: # get link details if they exist
+      ln = d['link']
+      ln = '<br />\n<a href="https://www.aes.id.au/'&#32;+&#32;ln&#32;+&#32;'">link</a>'
+    except KeyError:
+      ln = ''
+    try: # get the date
+      date = d['created_time']
+      date = getnormaldate(date)
+    except KeyError:
+        date = ''
+    if '' == msg:
+      continue
+    if '' == replytoid:
+      email = message2str(n, uname, destn, destname, date, t, id, msgid, msg, ln)
+    else:
+      email = message2str(n, uname, destn, destname, date, 'Re: ' + replytosub, replytoid, msgid, msg, ln, replytoid + ID_SUFFIX)
+    if conn:
+      conn.append(GMAIL_FOLDER, "", time.time(), email)
+    else:
+      print email
+      print "----------"
+    try: # process comments if there are any
+      comments = d['comments']
+      commentdata = comments['data']
+      printdata(commentdata, friendlist, replytoid=id, replytosub=t, conn=conn)
+    except KeyError:
+      pass
+    c += 1
+    if c == max:
+      break
+  return c</pre>
+<p>The last bit of the program uses these functions to perform the backup and to set up a cron job to run the program again every hour. Here's how it works..</p>
+<p>First, I grab the Facebook Graph API token that the previous program (setupfbtoken.py) provided, and initialise the module that will be used to query it.</p>
+<pre># Initialise the Graph API with a valid access token
+try:
+  with open("fbtoken.txt", "r") as f:
+    oauth_access_token = f.read()
+except IOError:
+  print 'Run setupfbtoken.py first'
+  exit(-1)
+
+# See https://developers.facebook.com/docs/reference/api/user/
+graph = GraphAPI(oauth_access_token)</pre>
+<p>Next, I set up the connection to Gmail that will be used to store the messages using the credentials from before.</p>
+<pre># Setup mail connection
+mailconnection = imaplib.IMAP4_SSL('imap.gmail.com')
+mailconnection.login(GMAIL_USER, GMAIL_PASS)
+mailconnection.create(GMAIL_FOLDER)</pre>
+<p>Now we just need to initialise some things that will be used in the main loop: the cache of the Facebook usernames, the count of the number of status updates to read, and the timestamp that marks the point in time to begin reading status from. This last one is to ensure that we don't keep uploading the same messages again and again, and the timestamp is kept in the file <tt>fbtimestamp.txt</tt>.</p>
+<pre>friendlist = {}
+
+countdown = MAX_ITEMS
+try:
+  with open("fbtimestamp.txt", "r") as f:
+    since = '&since=' + f.read()
+except IOError:
+  since = ''</pre>
+<p>Now we do the actual work, reading the status feed and processing them:</p>
+<pre>stream = graph.get('me/home?limit=' + str(REQUEST_ITEMS) + since)
+newsince = ''
+while stream and 0 < countdown:
+  streamdata = stream['data']
+  numitems = printdata(streamdata, friendlist, max=countdown, conn=mailconnection)
+  if 0 == numitems:
+    break;
+  countdown -= numitems
+  try: # get the link to ask for next (going back in time another step)
+    p = stream['paging']
+    next = p['next']
+    if '' == newsince:
+      try:
+        prev = p['previous']
+        newsince = getpagingpart(prev, 'since')
+      except KeyError:
+        pass
+  except KeyError:
+    break
+  until = '&#038;until=' + getpagingpart(next, 'until')
+  stream = graph.get('me/home?limit=' + str(REQUEST_ITEMS) + since + until)</pre>
+<p>Now we clean things up: record the new timestamp and close the connection to Gmail.</p>
+<pre>if '' != newsince:
+  with open("fbtimestamp.txt", "w") as f:
+    f.write(newsince) # Record the new timestamp for next time
+
+mailconnection.logout()</pre>
+<p>Finally, we set up a cron job to keep the status updates flowing. As you can probably guess from this code snippet, this all is meant to be saved in a file called <tt>exportfbfeed.py</tt>.</p>
+<pre>cron = CronTab() # get crontab for the current user
+if [] == cron.find_comment("exportfbfeed"):
+  job = cron.new(command="python ~/exportfbfeed.py", comment="exportfbfeed")
+  job.minute.on(0) # run this script @hourly, on the hour
+  cron.write()</pre>
+<p>Alright. Well, that was a little longer than I thought it would be. However, the bit that does the actual work is not very big. (No sniggering, people. This is a family show.)</p>
+<p>It's been interesting to see how stable the Raspberry Pi has been. While it wasn't designed to be a home server, it's been running fine for me for weeks.</p>
+<p>There was an additional benefit to this backup service that I hadn't expected. Since all my email and Facebook messages are now in the one place, I can easily search the lot of them from a single query. In fact, the Facebook search feature isn't very extensive, so it's great that I can now do Google searches to look for things people have sent me via Facebook. It's been a pretty successful project for me and I'm glad I got the chance to play with a Raspberry Pi.</p>
+<p>For those that want the original source code files, rather than cut-and-pasting from this blog, you can download them here:</p>
+<ul>
+<li><a href="setupfbtoken.py">setupfbtoken.py</a></li>
+<li><a href="exportfbfeed.py">exportfbfeed.py</a></li>
+</ul>
+<p>If you end up using this for something, let me know!</p>
+
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://www.aes.id.au/?p=926" rel="bookmark"><time class="entry-date published updated" datetime="2013-05-20T01:40:13+10:00">May 20, 2013</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="index.html%3Fcat=1.html" rel="category">Musings</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="index.html%3Ftag=code.html" rel="tag">code</a>, <a href="index.html%3Ftag=facebook.html" rel="tag">facebook</a>, <a href="index.html%3Ftag=gmail.html" rel="tag">gmail</a>, <a href="index.html%3Ftag=python.html" rel="tag">python</a>, <a href="index.html%3Ftag=raspberry-pi.html" rel="tag">raspberry pi</a>, <a href="index.html%3Ftag=software.html" rel="tag">software</a></span><span class="comments-link"><a href="https://www.aes.id.au/?p=926#respond">Leave a comment<span class="screen-reader-text"> on Pi, Python and I (part 2)</span></a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-926 -->
+
+<article id="post-916" class="post-916 post type-post status-publish format-standard hentry category-musings tag-code tag-facebook tag-python tag-raspberry-pi tag-software tag-source tag-technology">
+	
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="index.html%3Fp=916.html" rel="bookmark">Pi, Python and I (part 1)</a></h2>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><a href="http://www.flickr.com/photos/andrewescott/8705806229/"><img loading="lazy" class="alignright" style="margin: 2px;" alt="Raspberry Pi" src="http://farm9.staticflickr.com/8129/8705806229_4582b3cf48_m.jpg" width="240" height="180" /></a>I&#8217;ve been on <a href="http://www.facebook.com/">Facebook</a> for almost six years now, and <a href="http://www.aes.id.au/?p=243">active</a> for almost five. This is a long time in <a href="http://en.wikipedia.org/wiki/Internet_time">Internet time</a>.</p>
+<p>Facebook has, captured within it, the majority of my interactions with my friends. Many of them have stopped blogging and just share via Facebook, now. (Although, at least two have started blogging actively in the last year or so, and perhaps all is not lost.) At the start, I wasn&#8217;t completely convinced it would still be around &#8211; these things tended to grow and then fade within just a few years. So, I wasn&#8217;t too concerned about all the *stuff* that Facebook would accumulate and control. I don&#8217;t expect them to do anything nefarious with it, but I don&#8217;t expect them to look after it, either.</p>
+<p>However, I&#8217;ve had a slowly building sense that I should do something about it. What if Facebook glitched, and accidentally deleted everything? There&#8217;s nothing essential in there, but there are plenty of memories I&#8217;d like to preserve. I really wanted my own backup of my interactions with my friends, in the same way I have my own copies of emails that I&#8217;ve exchanged with people over the years. (Although, fewer people seem to email these days, and again they just share via Facebook.)</p>
+<p>The trigger to finally do something about this was when every geek I knew seemed to have got themselves a <a href="http://www.raspberrypi.org/">Raspberry Pi</a>. I tried to think of an excuse to get one myself, and didn&#8217;t have to think too hard. I could finally sort out this Facebook backup issue.</p>
+<p>Part of the terms of my web host are that I can&#8217;t run any &#8220;robots&#8221; &#8211; it&#8217;s purely meant to handle incoming web requests. Also, none of the computers at home are on all the time, as we only have tablets, laptops and phones. I didn&#8217;t have a server that I could run backup software on.. but a Raspberry Pi could be that server.</p>
+<p>For those who came in late, the Raspberry Pi is a tiny, single-board computer that came out last year, is designed and built in the UK, and (above all) is really, really cheap. I ordered mine from the local distributor, Element14, whose <a href="https://au.element14.com/jsp/raspi/orderPad.jsp?&amp;country=AU">prices start at just under $30 for the Model A</a>. To make it work, you need to at least provide a micro-USB power supply ($5 if you just want to plug it into your car, but more like $20 if you want to plug it into the wall) and a Micro SD card ($5-$10) to provide the disk, so it&#8217;s close to $60, unless you already have those to hand. You can get the Model B, which is about $12 more and gets you both more memory and an Ethernet port, which is what I did. You&#8217;ll need to find an Ethernet cable as well, in that case ($4).</p>
+<p>When a computer comes that cheap, you can afford to get one for projects that would otherwise be too expensive to justify. You can give them to kids to tinker with and there&#8217;s no huge financial loss if they brick them. Also, while cheap, they can do decent graphics through an HDMI port, and have been <a href="http://www.raspberrypi.org/faqs">compared to a Microsoft Xbox.</a> No wonder <a href="http://www.raspberrypi.org/archives/3375">they managed to sell a million units in their first year</a>. Really, I&#8217;m a bit slow on the uptake with the Raspberry Pi, but I got there in the end.</p>
+<p>While you can run other operating systems onto it, if you get a pre-configured SD card, it comes with a form of Linux called <a href="http://www.raspbian.org/">Raspbian</a> and has a programming language called <a href="http://www.python.org/">Python</a> set up ready to go. Hence, I figured as well as getting my Facebook backup going, I could use this as an excuse to teach myself Python. I&#8217;d looked at it briefly a few years back, but this would be the first time I&#8217;d used it in anger. I&#8217;ll document here the steps I went through to implement my project, in case anyone else wants to do something similar or just wants to learn from this (if only to learn how simple it is).</p>
+<p>The first thing to do is to head over to <a href="http://developers.facebook.com/">developers.facebook.com</a> and create a new &#8220;App&#8221; that will have the permissions that I&#8217;ll use to read my Facebook  feed. Once I logged in, I chose &#8220;Apps&#8221; from the toolbar at the top and clicked on &#8220;Create New App&#8221;. I gave my app a cool name (like &#8220;Awesome Backup Thing&#8221;) and clicked on &#8220;Continue&#8221;, passed the security check to keep out robots, and the app was created. The App ID and App secret are important and should be recorded somewhere for later.</p>
+<p style="text-align: center;"><a href="http://www.flickr.com/photos/andrewescott/8734192733/"><img loading="lazy" class="aligncenter" style="border: 1px solid black; margin-top: 2px; margin-bottom: 2px;" alt="" src="http://farm8.staticflickr.com/7287/8734192733_7e9c9b3c36.jpg" width="414" height="216" /></a></p>
+<p>Now I just needed to give it the right permissions. Under the Settings menu, I clicked on &#8220;Permissions&#8221;, then added in the ones needed into the relevant fields. For what I want, I needed: user_about_me, user_status, friends_about_me, friends_status, and read_stream. &#8220;Save Changes&#8221; and this step is done. Actually, I&#8217;m not sure if this is technically needed, given the next step.</p>
+<p style="text-align: center;"><a href="http://www.flickr.com/photos/andrewescott/8735275576/"><img loading="lazy" class="aligncenter" style="border: 1px solid black; margin-top: 2px; margin-bottom: 2px;" alt="" src="http://farm8.staticflickr.com/7310/8735275576_3681a1c981.jpg" width="450" height="234" /></a></p>
+<p>Now I needed to get a token that can be used by the software on the server to query Facebook from time to time. The easiest way is to go to the Graph API Explorer, accessible under the &#8220;Tools&#8221; menu in the toolbar.</p>
+<p>I changed the Application specified in the top right corner to Awesome Backup Thing (insert your name here), then clicked on &#8220;Get access token&#8221;. Now I need to specify the same permissions as before, across the three tabs of User Data Permissions (user_about_me, user_status), Friends Data Permissions (friends_about_me, friends_status) and Extended Permissions (read_stream). Lastly, I clicked on &#8220;Get Access Token&#8221;, clicked &#8220;OK&#8221; to the Facebook confirmation page that appeared, and returned to the Graph API explorer where there was a new token waiting for me in the &#8220;Access token&#8221; textbox. It&#8217;ll be needed later, but it&#8217;s valid for about two hours. If you need to generate another one, just click &#8220;Get access token&#8221; again.</p>
+<p>Now it&#8217;s time to return to the Pi. Once I logged in, I needed to set up some additional Python packages like this:</p>
+<pre>$ sudo pip install facepy
+$ sudo pip install python-dateutil
+$ sudo pip install python-crontab</pre>
+<p>And then I was ready to write some code. The first thing was to write the code that will keep my access token valid. The one that Facebook provides via the Graph API Explorer expires too quickly and can&#8217;t be renewed, so it needs to be turned into a renewable access token with a longer life. This new token then needs to be recorded somewhere so that we can use it for the backing-up. Luckily, this is pretty easy to do with those Python packages. The code looks like this (you&#8217;ll need to put in the App ID, App Secret, and Access Token that Facebook gave you):</p>
+<pre># Write a long-lived Facebook token to a file and setup cron job to maintain it
+import facepy
+from crontab import CronTab
+import datetime
+
+APP_ID = '1234567890' # Replace with yours
+APP_SECRET = 'abcdef123456' # Replace with yours
+
+try:
+  with open("fbtoken.txt", "r") as f:
+  old_token = f.read()
+except IOError:
+  old_token = ''
+if '' == old_token:
+  # Need to get old_token from https://developers.facebook.com/tools/explorer/
+  old_token = 'FooBarBaz' # Replace with yours
+
+new_token, expires_on = facepy.utils.get_extended_access_token(old_token, APP_ID, APP_SECRET)
+
+with open("fbtoken.txt", "w") as f:
+  f.write(new_token)
+
+cron = CronTab() # get crontab for the current user
+for oldjob in cron.find_comment("fbtokenrenew"):
+  cron.remove(oldjob)
+job = cron.new(command="python ~/setupfbtoken.py", comment="fbtokenrenew")
+renew_date = expires_on - datetime.timedelta(1)
+job.minute.on(0)
+job.hour.on(1) # 1:00am
+job.dom.on(renew_date.day)
+job.month.on(renew_date.month) # on the day before it's meant to expire
+cron.write()
+</pre>
+<p>Apologies for the pretty rudimentary Python coding, but it was my first program. The only other things to explain are that the program sits in the home directory as the file &#8220;setupfbtoken.py&#8221; and when it runs, it writes the long-lived token to &#8220;fbtoken.txt&#8221; then sets up a cron-job to refresh the token before it expires, by running itself again.</p>
+<p>I&#8217;ll finish off the rest of the code in the next post.</p>
+
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="index.html%3Fp=916.html" rel="bookmark"><time class="entry-date published" datetime="2013-05-13T22:41:09+10:00">May 13, 2013</time><time class="updated" datetime="2013-05-13T22:54:00+10:00">May 13, 2013</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="index.html%3Fcat=1.html" rel="category">Musings</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="index.html%3Ftag=code.html" rel="tag">code</a>, <a href="index.html%3Ftag=facebook.html" rel="tag">facebook</a>, <a href="index.html%3Ftag=python.html" rel="tag">python</a>, <a href="index.html%3Ftag=raspberry-pi.html" rel="tag">raspberry pi</a>, <a href="index.html%3Ftag=software.html" rel="tag">software</a>, <a href="index.html%3Ftag=source.html" rel="tag">source</a>, <a href="index.html%3Ftag=technology.html" rel="tag">technology</a></span><span class="comments-link"><a href="index.html%3Fp=916.html#comments">2 Comments<span class="screen-reader-text"> on Pi, Python and I (part 1)</span></a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-916 -->
+
+		</main><!-- .site-main -->
+	</section><!-- .content-area -->
+
+
+	</div><!-- .site-content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+									<a href="https://wordpress.org/" class="imprint">
+				Proudly powered by WordPress			</a>
+		</div><!-- .site-info -->
+	</footer><!-- .site-footer -->
+
+</div><!-- .site -->
+
+<script src='https://www.aes.id.au/wp-content/themes/twentyfifteen/js/skip-link-focus-fix.js?ver=20141028' id='twentyfifteen-skip-link-focus-fix-js'></script>
+<script id='twentyfifteen-script-js-extra'>
+var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+</script>
+<script src='https://www.aes.id.au/wp-content/themes/twentyfifteen/js/functions.js?ver=20171218' id='twentyfifteen-script-js'></script>
+<script src='https://www.aes.id.au/wp-includes/js/wp-embed.min.js?ver=5.7.2' id='wp-embed-js'></script>
+<script src='https://www.aes.id.au/wp-content/plugins/quick-adsense-reloaded/assets/js/ads.js?ver=2.0.27' id='quads-admin-ads-js'></script>
+
+</body>
+</html>
